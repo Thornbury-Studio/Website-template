@@ -51,3 +51,7 @@ somebody checking their own contribution.
 Static, zero config. The repository root is the site root, so a host that
 serves `index.html` from the root needs no configuration file, no build
 command and no output directory.
+
+The `main` branch deploys automatically to
+<https://website-template-sooty-eight.vercel.app> — a merged pull request
+goes live on its own, with no manual step.
