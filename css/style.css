@@ -1,0 +1,399 @@
+/* ==========================================================================
+   Template Commons
+
+   A front door, not a portfolio piece. The brief it is built to: confident
+   oversized typography and generous whitespace, borrowed as principles from
+   the reference and not as surface; none of its motion. Nothing on this page
+   animates on scroll, nothing choreographs on load. Hover and focus states
+   only, so the next person can extend this without first reverse-engineering
+   an animation system.
+
+   PALETTE — white ground, two accents:
+     #0B4F4A  viridian   every interactive thing: links, focus, the rules
+     #8C3350  claret     used sparingly, and never beside the viridian at
+                         equal weight — one marker per screenful at most
+   Deep green against a dark wine-red are close to complementary, which is
+   what makes them sit together without either one shouting; keeping the
+   claret rare is what stops that pairing reading as festive. Both clear AA
+   on white as body text (9.4:1 and 7.8:1), so neither is decoration that
+   only works when it is large.
+
+   TYPE — Archivo for everything structural (variable width AND weight, so
+   the hero can run tight and wide without a second family) and IBM Plex Mono
+   for code and small technical labels. Two families, no third.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+
+:root {
+  --page:      #ffffff;
+  --page-2:    #f7f8f9;   /* the one recessed band */
+  --ink:       #16191c;   /* 17.7:1 */
+  --ink-2:     #5b636b;   /*  6.0:1 — secondary text, measured */
+  --rule:      #e2e5e8;
+  --rule-2:    #c9cfd4;
+
+  --accent:    #0b4f4a;   /*  9.4:1 */
+  --accent-in: #073a36;   /* pressed / hover */
+  --mark:      #8c3350;   /*  7.8:1 — sparing */
+
+  --sans: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --wrap: 74rem;
+  --gutter: clamp(1.15rem, 5vw, 3.5rem);
+  --bay: clamp(3.5rem, 9vw, 7.5rem);
+
+  --ease: cubic-bezier(.2, .6, .3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset
+   -------------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; background: var(--page); }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3, p, ol, ul, dl, dd, figure, pre { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent-in); }
+
+code, pre { font-family: var(--mono); }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 50;
+  background: var(--accent); color: #fff;
+  padding: .7rem 1rem;
+  font-family: var(--mono); font-size: .8rem;
+  text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+::selection { background: var(--accent); color: #fff; }
+
+/* --------------------------------------------------------------------------
+   3. Header
+   -------------------------------------------------------------------------- */
+
+.top { border-bottom: 1px solid var(--rule); }
+.top__in {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; min-height: 4.25rem;
+}
+
+.mark {
+  display: inline-flex; align-items: center; gap: .6rem;
+  color: var(--ink); text-decoration: none;
+  font-weight: 700; font-size: 1rem;
+  font-variation-settings: 'wdth' 92;
+  letter-spacing: -.005em;
+}
+/* Three blocks: two viridian, one claret — the collection's only logo, and
+   the one place the two accents are allowed to touch. */
+.mark__glyph { display: grid; grid-template-columns: 7px 8px; gap: 2px; }
+.mark__glyph i { display: block; background: var(--accent); }
+.mark__glyph i:nth-child(1) { grid-row: 1 / span 2; height: 20px; }
+.mark__glyph i:nth-child(2) { height: 9px; }
+.mark__glyph i:nth-child(3) { height: 9px; background: var(--mark); }
+
+.top__nav { display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2rem); }
+.top__nav a {
+  font-family: var(--mono); font-size: .78rem;
+  text-decoration: none; color: var(--ink-2);
+  padding: .3rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms var(--ease), border-color 160ms var(--ease);
+}
+.top__nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   4. Hero — the oversized type the whole page is built around
+   -------------------------------------------------------------------------- */
+
+.hero { padding-block: clamp(3rem, 8vw, 6.5rem) var(--bay); }
+
+.hero h1 {
+  font-size: clamp(2.35rem, 7.4vw, 6.1rem);
+  line-height: 1.02;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 88;
+  letter-spacing: -.035em;
+  max-width: 18ch;
+}
+
+.hero__foot {
+  display: grid;
+  grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+  margin-top: clamp(2.25rem, 5vw, 3.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.hero__lede { color: var(--ink-2); font-size: clamp(1rem, 1.25vw, 1.1rem); }
+
+.hero__stat { justify-self: end; text-align: right; }
+.hero__stat dt {
+  font-family: var(--mono); font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .09em;
+  color: var(--ink-2);
+}
+.hero__stat dd {
+  margin: .35rem 0 0;
+  font-family: var(--mono); font-size: 1.05rem;
+  color: var(--mark);
+}
+
+/* --------------------------------------------------------------------------
+   5. Section furniture
+   -------------------------------------------------------------------------- */
+
+.collection, .add { padding-block: var(--bay); }
+.collection { border-top: 1px solid var(--rule); }
+.add { background: var(--page-2); border-top: 1px solid var(--rule); }
+
+.section-head {
+  font-size: clamp(1.15rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 92;
+  letter-spacing: -.015em;
+  padding-bottom: .9rem;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.notice {
+  border-left: 3px solid var(--mark);
+  padding: .1rem 0 .1rem 1rem;
+  margin-bottom: 2rem;
+  color: var(--ink-2);
+  max-width: 46rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. The grid — the populated state
+   -------------------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* The card is an <article> with a stretched title link rather than one big
+   <a>, because an author gets their own link and anchors cannot nest. See
+   the note in js/main.js. */
+.card { position: relative; display: flex; flex-direction: column; }
+
+.card__shot {
+  border: 1px solid var(--rule);
+  background: var(--page-2);
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+}
+.card__shot img { width: 100%; height: 100%; object-fit: cover; }
+.card__shot--placeheld img { object-fit: contain; }
+
+.card__body { padding-top: 1rem; }
+
+.card__title {
+  font-size: 1.2rem; font-weight: 700;
+  font-variation-settings: 'wdth' 95;
+  letter-spacing: -.015em;
+  line-height: 1.25;
+}
+.card__link { color: var(--ink); text-decoration: none; }
+.card__link::after { content: ''; position: absolute; inset: 0; }
+.card:hover .card__link { color: var(--accent); }
+.card__link:focus-visible { outline: none; }
+.card:focus-within .card__shot { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.card__desc { margin-top: .45rem; color: var(--ink-2); font-size: .95rem; }
+
+.card__meta {
+  display: flex; flex-wrap: wrap; gap: .3rem .75rem;
+  margin-top: .8rem;
+  font-family: var(--mono); font-size: .74rem;
+  color: var(--ink-2);
+}
+/* Raised above the stretched title link so it stays independently clickable. */
+.card__by[href] { position: relative; z-index: 1; }
+.card__tags { color: var(--rule-2); }
+
+/* --------------------------------------------------------------------------
+   7. The empty state — a first-class layout, not a fallback
+
+   This ships as the real state of the repository, so it is composed rather
+   than apologised for. The frame is deliberately, visibly a placeholder:
+   dashed, labelled, and not pretending to be a screenshot of anything.
+   -------------------------------------------------------------------------- */
+
+.empty {
+  display: grid;
+  grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.empty__frame {
+  aspect-ratio: 8 / 5;
+  display: grid; place-items: center;
+  border: 2px dashed var(--rule-2);
+  background:
+    repeating-linear-gradient(-45deg,
+      transparent 0 11px,
+      rgba(201, 207, 212, .16) 11px 22px);
+}
+.empty__label {
+  font-family: var(--mono); font-size: .74rem;
+  text-transform: uppercase; letter-spacing: .16em;
+  color: var(--ink-2);
+  background: var(--page);
+  padding: .45rem .8rem;
+  border: 1px solid var(--rule-2);
+}
+
+.empty__say { max-width: 34rem; }
+.empty__say h3 {
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 90;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+}
+.empty__say p { margin-top: .9rem; color: var(--ink-2); }
+.empty__cta { margin-top: 1.6rem; }
+
+.button {
+  display: inline-block;
+  background: var(--accent); color: #fff;
+  padding: .7rem 1.35rem;
+  text-decoration: none;
+  font-family: var(--mono); font-size: .8rem;
+  transition: background 160ms var(--ease);
+}
+.button:hover { background: var(--accent-in); color: #fff; }
+
+/* --------------------------------------------------------------------------
+   8. Adding a template
+   -------------------------------------------------------------------------- */
+
+.add__lede { max-width: 46rem; color: var(--ink-2); margin-bottom: clamp(2rem, 4vw, 3rem); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+.step { border-top: 1px solid var(--rule-2); padding-top: 1rem; }
+.step__n {
+  font-family: var(--mono); font-size: .78rem;
+  color: var(--mark);
+  margin-bottom: .6rem;
+}
+.step h3 {
+  font-size: 1.08rem; font-weight: 700;
+  font-variation-settings: 'wdth' 95;
+  letter-spacing: -.01em;
+  margin-bottom: .45rem;
+}
+.step p:last-child { color: var(--ink-2); font-size: .95rem; }
+
+code { font-size: .88em; background: #eceff1; padding: .1em .35em; }
+
+.snippet { margin-top: clamp(2.25rem, 5vw, 3.5rem); border: 1px solid var(--rule-2); background: var(--page); }
+.snippet figcaption {
+  font-family: var(--mono); font-size: .74rem;
+  color: var(--ink-2);
+  padding: .6rem 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+/* Wide code scrolls inside its own box; the page body never scrolls sideways. */
+.snippet pre { overflow-x: auto; padding: 1.15rem 1rem; }
+.snippet code { background: none; padding: 0; font-size: .82rem; line-height: 1.75; }
+
+/* --------------------------------------------------------------------------
+   9. Footer
+   -------------------------------------------------------------------------- */
+
+.foot { border-top: 1px solid var(--rule); padding-block: clamp(2.5rem, 5vw, 4rem); }
+.foot__in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 26rem) auto;
+  gap: 1.25rem 2.5rem;
+  align-items: start;
+}
+.foot__mark {
+  font-weight: 700; font-variation-settings: 'wdth' 92;
+  letter-spacing: -.01em;
+}
+.foot__note { color: var(--ink-2); font-size: .88rem; }
+.foot__links { display: flex; gap: 1.25rem; justify-self: end; }
+.foot__links a { font-family: var(--mono); font-size: .78rem; }
+
+/* --------------------------------------------------------------------------
+   10. Small screens — its own composition, not a squeeze
+
+   The desktop page is a wide three-column argument. On a phone it becomes a
+   single vertical read: the nav drops to the one link that matters, the
+   hero's stat moves under its own lede instead of floating right, the empty
+   state's placeholder frame goes from a side-by-side pair to a short band
+   above the words, and the three steps become a numbered list with the
+   number on the same line as the heading rather than stacked above it —
+   three separate columns of prose is a desktop shape.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 60rem) {
+  .hero__foot { grid-template-columns: 1fr; }
+  .hero__stat { justify-self: start; text-align: left; }
+  .empty { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 0; }
+  .step { padding-block: 1.15rem; }
+  .step:last-child { border-bottom: 1px solid var(--rule-2); }
+  .foot__in { grid-template-columns: 1fr; }
+  .foot__links { justify-self: start; }
+}
+
+@media (max-width: 40rem) {
+  .top__in { min-height: 3.75rem; }
+  /* One nav item on a phone. "How to add one" is the same destination as
+     the button in the empty state directly below the fold, so keeping both
+     spends the only horizontal room the header has on a duplicate. */
+  .top__nav a:not(.top__repo) { display: none; }
+
+  .hero h1 { letter-spacing: -.025em; max-width: none; }
+
+  .empty__frame { aspect-ratio: auto; height: 8.5rem; }
+
+  .step { display: grid; grid-template-columns: 2.4rem 1fr; column-gap: .5rem; }
+  .step__n { grid-row: 1; margin: 0; line-height: 1.55; }
+  .step h3 { grid-column: 2; }
+  .step p:last-child { grid-column: 2; }
+
+  .snippet code { font-size: .76rem; }
+}
