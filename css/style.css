@@ -34,6 +34,7 @@
   --ink-2:     #5b636b;   /*  6.0:1 — secondary text, measured */
   --rule:      #e2e5e8;
   --rule-2:    #c9cfd4;
+  --grid:      #eef1f2;   /* the hero's measuring lines — barely there on purpose */
 
   --accent:    #0b4f4a;   /*  9.4:1 */
   --accent-in: #073a36;   /* pressed / hover */
@@ -108,7 +109,9 @@ code, pre { font-family: var(--mono); }
    3. Header
    -------------------------------------------------------------------------- */
 
-.top { border-bottom: 1px solid var(--rule); }
+/* A 3px accent rule across the very top edge. One line of CSS, and it is the
+   difference between "a white page" and "a white page that was designed". */
+.top { border-top: 3px solid var(--accent); border-bottom: 1px solid var(--rule); }
 .top__in {
   display: flex; align-items: center; justify-content: space-between;
   gap: 1.5rem; min-height: 4.25rem;
@@ -149,6 +152,22 @@ code, pre { font-family: var(--mono); }
    there is no content anchoring the middle of it. */
 .hero { padding-block: clamp(3rem, 8vw, 6.5rem) calc(var(--bay) * .5); }
 
+/* Faint verticals on the wrap's own quarters. The point is not decoration —
+   it is that empty space reads as *measured* rather than as unfilled, which is
+   the actual difference between restraint and a page that looks unfinished.
+   Drawn as a gradient rather than markup so there is nothing extra for a
+   contributor to maintain. */
+.hero .wrap {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--grid) 0 1px,
+    transparent 1px 25%);
+  background-position: 0 0;
+  background-size: calc(100% - var(--gutter) * 2) 100%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
+
 .hero h1 {
   font-size: clamp(2.35rem, 7.4vw, 6.1rem);
   line-height: 1.02;
@@ -157,6 +176,8 @@ code, pre { font-family: var(--mono); }
   letter-spacing: -.035em;
   max-width: 18ch;
 }
+/* Colour carried by the type itself, not by a box behind it. */
+.hero h1 em { font-style: normal; color: var(--accent); }
 
 .hero__foot {
   display: grid;
@@ -187,9 +208,36 @@ code, pre { font-family: var(--mono); }
 
 .collection, .add { padding-block: var(--bay); }
 .collection { border-top: 1px solid var(--rule); }
-.add { background: var(--page-2); border-top: 1px solid var(--rule); }
+/* The page's one block of real weight. White stays dominant — three sections
+   of it against one band — but without a single mass of colour anywhere, an
+   all-white page has no rhythm to read: every section arrives at the same
+   value and the eye has nothing to travel between. No third hue; this is the
+   same viridian the links are. */
+.band {
+  background: var(--accent);
+  color: #fff;
+  border-top: 0;
+}
+.band .section-head { border-bottom-color: rgba(255, 255, 255, .38); }
+.band .section-head__n { color: rgba(255, 255, 255, .62); }
+.band .add__lede,
+.band .step p:last-child { color: rgba(255, 255, 255, .76); }
+.band .step { border-top-color: rgba(255, 255, 255, .28); }
+.band .step__n { color: #fff; }
+.band a { color: #fff; text-decoration-color: rgba(255, 255, 255, .5); }
+.band a:hover { color: #fff; text-decoration-color: #fff; }
+.band code { background: rgba(255, 255, 255, .14); color: #fff; }
+.band .snippet { border-color: rgba(255, 255, 255, .28); background: rgba(0, 0, 0, .16); }
+.band .snippet figcaption {
+  color: rgba(255, 255, 255, .7);
+  border-bottom-color: rgba(255, 255, 255, .22);
+}
+.band .snippet code { color: #fff; background: none; }
 
 .section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
   font-size: clamp(1.15rem, 1.6vw, 1.3rem);
   font-weight: 700;
   font-variation-settings: 'wdth' 92;
@@ -197,6 +245,15 @@ code, pre { font-family: var(--mono); }
   padding-bottom: .9rem;
   border-bottom: 2px solid var(--accent);
   margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+/* Numbering the sections turns two headings into an index, which is what
+   makes a sparse page feel like a system rather than a list of leftovers. */
+.section-head__n {
+  font-family: var(--mono);
+  font-size: .8rem;
+  font-weight: 400;
+  color: var(--mark);
+  letter-spacing: .08em;
 }
 
 .notice {
@@ -242,6 +299,20 @@ code, pre { font-family: var(--mono); }
 .card__link { color: var(--ink); text-decoration: none; }
 .card__link::after { content: ''; position: absolute; inset: 0; }
 .card:hover .card__link { color: var(--accent); }
+/* The card earns a rule on hover rather than a shadow or a lift — same
+   vocabulary as the rest of the page, which is all rules and type. */
+.card__shot { position: relative; }
+.card__shot::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: -1px;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--ease);
+}
+.card:hover .card__shot::after,
+.card:focus-within .card__shot::after { transform: scaleX(1); }
 .card__link:focus-visible { outline: none; }
 .card:focus-within .card__shot { outline: 2px solid var(--accent); outline-offset: 3px; }
 
@@ -258,53 +329,72 @@ code, pre { font-family: var(--mono); }
 .card__tags { color: var(--rule-2); }
 
 /* --------------------------------------------------------------------------
-   7. The empty state — a first-class layout, not a fallback
+   7. The empty state — a diagram of the grid it is about to become
 
-   This ships as the real state of the repository, so it is composed rather
-   than apologised for. The frame is deliberately, visibly a placeholder:
-   dashed, labelled, and not pretending to be a screenshot of anything.
+   This ships as the real state of the repository, so it gets composed rather
+   than apologised for. Three slots at exactly the card's proportions, sitting
+   on the same grid the populated state uses: it still says "no templates
+   yet", and it now also shows a first-time contributor the shape of the thing
+   they are being asked to fill. Visibly a placeholder — dashed, numbered, and
+   not pretending to be a screenshot of anything.
    -------------------------------------------------------------------------- */
 
-.empty {
-  display: grid;
-  grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
-  gap: clamp(1.75rem, 4vw, 4rem);
-  align-items: center;
-}
+.empty { display: block; }
 
-.empty__frame {
-  aspect-ratio: 8 / 5;
-  display: grid; place-items: center;
-  border: 2px dashed var(--rule-2);
-  background:
-    repeating-linear-gradient(-45deg,
-      transparent 0 11px,
-      rgba(201, 207, 212, .16) 11px 22px);
-}
-.empty__label {
-  font-family: var(--mono); font-size: .74rem;
-  text-transform: uppercase; letter-spacing: .16em;
-  color: var(--ink-2);
-  background: var(--page);
-  padding: .45rem .8rem;
-  border: 1px solid var(--rule-2);
-}
-
-.empty__say { max-width: 34rem; }
+.empty__say { max-width: 40rem; }
 .empty__say h3 {
-  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  font-size: clamp(1.6rem, 3.4vw, 2.5rem);
   font-weight: 700;
-  font-variation-settings: 'wdth' 90;
-  letter-spacing: -.025em;
-  line-height: 1.1;
+  font-variation-settings: 'wdth' 88;
+  letter-spacing: -.03em;
+  line-height: 1.06;
 }
 .empty__say p { margin-top: .9rem; color: var(--ink-2); }
 .empty__cta { margin-top: 1.6rem; }
 
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: clamp(2.5rem, 5vw, 3.75rem);
+}
+.slot {
+  position: relative;
+  aspect-ratio: 8 / 5;
+  border: 2px dashed var(--rule-2);
+  display: grid;
+  place-content: center;
+  gap: .75rem;
+  text-align: center;
+  background:
+    repeating-linear-gradient(-45deg,
+      transparent 0 11px,
+      rgba(201, 207, 212, .14) 11px 22px);
+}
+/* Only the next one up is at full strength — the rest recede, so the eye is
+   pointed at the slot that is actually being offered. */
+.slot:not(.slot--next) { opacity: .45; }
+.slot--next { border-color: var(--accent); }
+
+.slot__n {
+  font-family: var(--mono);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--rule-2);
+  line-height: 1;
+}
+.slot--next .slot__n { color: var(--accent); }
+.slot__say {
+  font-family: var(--mono);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--ink-2);
+}
+
 .button {
   display: inline-block;
   background: var(--accent); color: #fff;
-  padding: .7rem 1.35rem;
+  padding: .78rem 1.5rem;
   text-decoration: none;
   font-family: var(--mono); font-size: .8rem;
   transition: background 160ms var(--ease);
@@ -356,13 +446,16 @@ code { font-size: .88em; background: #eceff1; padding: .1em .35em; }
 .foot { border-top: 1px solid var(--rule); padding-block: clamp(2.5rem, 5vw, 4rem); }
 .foot__in {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 26rem) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 24rem) auto;
   gap: 1.25rem 2.5rem;
-  align-items: start;
+  align-items: baseline;
 }
 .foot__mark {
-  font-weight: 700; font-variation-settings: 'wdth' 92;
-  letter-spacing: -.01em;
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 88;
+  letter-spacing: -.03em;
+  line-height: 1;
 }
 .foot__note { color: var(--ink-2); font-size: .88rem; }
 .foot__links { display: flex; gap: 1.25rem; justify-self: end; }
@@ -383,7 +476,8 @@ code { font-size: .88em; background: #eceff1; padding: .1em .35em; }
 @media (max-width: 60rem) {
   .hero__foot { grid-template-columns: 1fr; }
   .hero__stat { justify-self: start; text-align: left; }
-  .empty { grid-template-columns: 1fr; }
+  /* Three measuring lines across a phone is noise, not measure. */
+  .hero .wrap { background-image: none; }
   .steps { grid-template-columns: 1fr; gap: 0; }
   .step { padding-block: 1.15rem; }
   .step:last-child { border-bottom: 1px solid var(--rule-2); }
@@ -400,7 +494,10 @@ code { font-size: .88em; background: #eceff1; padding: .1em .35em; }
 
   .hero h1 { letter-spacing: -.025em; max-width: none; }
 
-  .empty__frame { aspect-ratio: auto; height: 8.5rem; }
+  /* Two dimmed slots are a diagram on a desktop and dead scroll on a phone.
+     The live one stays, shorter; the rest go. */
+  .slot:not(.slot--next) { display: none; }
+  .slot--next { aspect-ratio: auto; height: 9rem; }
 
   .step { display: grid; grid-template-columns: 2.4rem 1fr; column-gap: .5rem; }
   .step__n { grid-row: 1; margin: 0; line-height: 1.55; }

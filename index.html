@@ -39,7 +39,7 @@
   <!-- ============================== hero ============================== -->
   <section class="hero">
     <div class="wrap">
-      <h1>An open collection<br>of self-contained<br>website templates.</h1>
+      <h1>An open collection<br>of self-contained<br><em>website templates.</em></h1>
       <div class="hero__foot">
         <p class="hero__lede">Every template here is one folder of plain HTML, CSS and
           JavaScript. No build step, no framework, no shared dependencies &mdash;
@@ -55,7 +55,7 @@
   <!-- ============================ collection ============================ -->
   <section class="collection" id="collection">
     <div class="wrap">
-      <h2 class="section-head">The collection</h2>
+      <h2 class="section-head"><span class="section-head__n">01</span>The collection</h2>
 
       <noscript>
         <p class="notice">The collection is listed by a small script in
@@ -73,24 +73,26 @@
            today, sitting in the HTML rather than being drawn by script, so
            it is correct even before anything runs. -->
       <div class="empty" id="empty">
-        <div class="empty__frame" aria-hidden="true">
-          <span class="empty__label">Empty slot</span>
-        </div>
         <div class="empty__say">
           <h3>No templates yet.</h3>
-          <p>Nothing has been contributed to the collection so far. This page is
-            the whole project at the moment: a hub, a convention, and an empty
-            folder waiting for a first entry.</p>
+          <p>Nothing has been contributed so far. This page is the whole project
+            at the moment: a hub, a convention, and an empty folder waiting for a
+            first entry. The slots below are where they will sit.</p>
           <p class="empty__cta"><a class="button" href="#add">Add the first one</a></p>
         </div>
+        <ol class="slots" aria-hidden="true">
+          <li class="slot slot--next"><span class="slot__n">01</span><span class="slot__say">The first entry goes here</span></li>
+          <li class="slot"><span class="slot__n">02</span></li>
+          <li class="slot"><span class="slot__n">03</span></li>
+        </ol>
       </div>
     </div>
   </section>
 
   <!-- ============================== add one ============================== -->
-  <section class="add" id="add">
+  <section class="add band" id="add">
     <div class="wrap">
-      <h2 class="section-head">Adding a template</h2>
+      <h2 class="section-head"><span class="section-head__n">02</span>Adding a template</h2>
       <p class="add__lede">Three steps. The whole convention fits on this page &mdash;
         <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> is the same thing written out
         at length, and <a href="templates/README.md">templates/README.md</a>
