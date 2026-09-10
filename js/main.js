@@ -90,18 +90,28 @@
     img.width = 640;
     img.height = 400;
 
+    function fallBack() {
+      if (img.getAttribute('src') === PLACEHOLDER) return;
+      img.src = PLACEHOLDER;
+      shot.classList.add('card__shot--placeheld');
+    }
+
     var thumb = typeof entry.thumb === 'string' && entry.thumb ? entry.thumb : null;
     /* A thumbnail path is repo-relative, so it must not be allowed to point
        off-site; and a path that 404s falls back rather than putting a
-       broken-image icon on the front door. */
+       broken-image icon on the front door.
+
+       ORDER MATTERS: the listener goes on BEFORE src is assigned. Setting
+       src starts the fetch immediately, even while the element is still
+       detached, so attaching the handler afterwards is a race the handler
+       loses on a fast local 404 — which is exactly the case a contributor
+       hits when they typo the path and test on their own machine. */
     if (thumb && !/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(thumb) && thumb.indexOf('//') !== 0) {
+      img.addEventListener('error', fallBack);
       img.src = thumb;
-      img.addEventListener('error', function () {
-        if (img.getAttribute('src') !== PLACEHOLDER) {
-          img.src = PLACEHOLDER;
-          shot.classList.add('card__shot--placeheld');
-        }
-      });
+      /* And if it lost that race anyway — a cached failure resolves without
+         ever dispatching to a listener added later — catch it on the way in. */
+      if (img.complete && img.naturalWidth === 0) fallBack();
     } else {
       img.src = PLACEHOLDER;
       shot.classList.add('card__shot--placeheld');

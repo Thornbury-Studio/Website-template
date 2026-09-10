@@ -68,6 +68,14 @@ body {
 }
 
 img, svg { display: block; max-width: 100%; }
+
+/* Load-bearing. Both the grid and the empty state are toggled with the
+   `hidden` attribute, and both carry `display: grid` from a class — which
+   beats the UA stylesheet's `[hidden] { display: none }` on specificity, so
+   without this the "no templates yet" panel keeps painting underneath the
+   populated grid. Setting .hidden in script looks correct from a property
+   check and is still wrong on screen; this is what actually makes it work. */
+[hidden] { display: none !important; }
 h1, h2, h3, p, ol, ul, dl, dd, figure, pre { margin: 0; }
 ol, ul { padding: 0; list-style: none; }
 
@@ -135,7 +143,11 @@ code, pre { font-family: var(--mono); }
    4. Hero — the oversized type the whole page is built around
    -------------------------------------------------------------------------- */
 
-.hero { padding-block: clamp(3rem, 8vw, 6.5rem) var(--bay); }
+/* Half a bay at the bottom, not a whole one: the collection section below
+   contributes its own full bay, and two stacked bays put ~240px of nothing
+   between the lede and the next heading. Generous stops being generous when
+   there is no content anchoring the middle of it. */
+.hero { padding-block: clamp(3rem, 8vw, 6.5rem) calc(var(--bay) * .5); }
 
 .hero h1 {
   font-size: clamp(2.35rem, 7.4vw, 6.1rem);
