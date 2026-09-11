@@ -21,12 +21,20 @@ export function GalleryHero() {
           <p className="font-[family-name:var(--font-display)] text-sm tracking-[0.14em] text-[var(--ink)] uppercase">
             Website Templates
           </p>
-          <Link
-            href="#gallery"
-            className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
-          >
-            Browse collection
-          </Link>
+          <div className="flex items-center gap-4">
+            <a
+              href="/"
+              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+            >
+              Template Commons
+            </a>
+            <Link
+              href="#gallery"
+              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+            >
+              Browse collection
+            </Link>
+          </div>
         </nav>
 
         <div className="mt-16 max-w-3xl animate-[rise_700ms_ease-out]">
