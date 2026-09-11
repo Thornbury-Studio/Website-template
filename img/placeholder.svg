@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="No preview image">
-  <rect width="640" height="400" fill="#f4f6f7"/>
-  <rect x="12.5" y="12.5" width="615" height="375" fill="none" stroke="#c3cace" stroke-width="2" stroke-dasharray="10 8"/>
-  <path d="M12.5 12.5 L627.5 387.5 M627.5 12.5 L12.5 387.5" stroke="#dde2e5" stroke-width="2"/>
-  <rect x="222" y="176" width="196" height="48" fill="#f4f6f7"/>
-  <text x="320" y="207" text-anchor="middle"
-        font-family="ui-monospace, 'IBM Plex Mono', Menlo, Consolas, monospace"
-        font-size="19" letter-spacing="3" fill="#7d878d">NO PREVIEW</text>
-</svg>

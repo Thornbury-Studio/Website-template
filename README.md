@@ -1,57 +1,39 @@
-# Template Commons
+# Website Templates
 
-An open collection of self-contained website templates.
+Client-facing showcase shell for browsing website template tiers. Dummy data only — no live client content.
 
-Every template here is one folder of plain HTML, CSS and JavaScript. No build
-step, no framework, no shared dependencies between templates — download a
-folder and it runs. Anyone can add one.
+**Production:** https://website-template-sooty-eight.vercel.app  
+`main` auto-deploys on Vercel.
 
-**The collection is currently empty.** This repository is the hub, the
-convention and an empty `templates/` directory waiting for a first entry.
+## Stack
 
-## What's here
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
 
-| Path | What it is |
-|---|---|
-| `index.html` | The hub. Lists whatever is in `js/templates.js`. |
-| `js/templates.js` | **The collection index — the one file you edit to add a template.** |
-| `js/main.js` | Renders the list. Treats the data file as untrusted input. |
-| `css/style.css` | The hub's styles. |
-| `img/placeholder.svg` | Stand-in preview for templates without a thumbnail. |
-| `templates/` | One folder per template. Empty for now. |
-| `CONTRIBUTING.md` | How to add one, written for someone who has never seen this repo. |
-
-## Adding a template
-
-Three steps: create `templates/your-slug/`, keep everything it needs inside
-that folder, append one object to the array in `js/templates.js`. Then open a
-pull request.
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md) — it is short, and it is the whole
-agreement.
-
-## Running it locally
-
-There is nothing to install and nothing to build. Double-click `index.html`,
-or serve the directory if you prefer:
+## Run locally
 
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-The collection data is a plain script that assigns a global rather than a
-JSON file fetched at runtime, specifically so that opening the page from
-`file://` works. A `fetch()` — and an ES module — would both be blocked by
-cross-origin rules there, and would render an empty page locally while
-working fine once deployed. That is the worst possible failure to hand
-somebody checking their own contribution.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Deployment
+## Structure
 
-Static, zero config. The repository root is the site root, so a host that
-serves `index.html` from the root needs no configuration file, no build
-command and no output directory.
+```
+src/
+  types/template.ts          # TemplateItem + tier types
+  data/templates.ts          # 6 dummy templates (2 per tier)
+  components/
+    gallery/                 # Hero, filters, cards, gallery
+    preview/                 # Blank wireframe shell
+  app/
+    page.tsx                 # Gallery home
+    templates/preview/[id]/ # Standardized blank preview
+```
 
-The `main` branch deploys automatically to
-<https://website-template-sooty-eight.vercel.app> — a merged pull request
-goes live on its own, with no manual step.
+## Preview route
+
+`/templates/preview/[id]` — Hero, Features, Social Proof/Stats, Contact/CTA with grey placeholders and bracketed copy only.

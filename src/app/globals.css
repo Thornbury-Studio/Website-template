@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f7f8f6;
+  --mist: #eef2ef;
+  --mist-deep: #e4ebe6;
+  --surface: #ffffff;
+  --ink: #142021;
+  --muted: #5b6a6c;
+  --line: #d5ddd8;
+  --accent: #1f6f64;
+  --wire: #e8ece9;
+  --wire-line: #b8c4be;
+  --tier-1-bg: #dceeea;
+  --tier-1-fg: #0f4f48;
+  --tier-2-bg: #e4ebf3;
+  --tier-2-fg: #243b53;
+  --tier-3-bg: #efe6d8;
+  --tier-3-fg: #5c3d1e;
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, white);
+}
