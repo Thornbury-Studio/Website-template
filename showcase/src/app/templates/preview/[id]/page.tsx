@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlankTemplateShell } from "@/components/preview/BlankTemplateShell";
 import { getTemplateById, templates } from "@/data/templates";
-import { TierBadge } from "@/components/gallery/TierBadge";
 
 interface PreviewPageProps {
   params: Promise<{ id: string }>;
@@ -34,22 +33,27 @@ export default async function TemplatePreviewPage({ params }: PreviewPageProps) 
 
   return (
     <div className="min-h-screen bg-[var(--paper)]">
-      <div className="sticky top-0 z-20 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--paper)_92%,transparent)] backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3 sm:px-8">
+      <div className="sticky top-0 z-20 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--paper)_90%,transparent)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-5 py-3.5 sm:px-8">
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/"
-              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+              className="rounded-xl px-2 py-1 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--mist)] hover:text-[var(--ink)]"
             >
-              ← Back to gallery
+              ← Collections
             </Link>
             <span className="hidden h-4 w-px bg-[var(--line)] sm:block" />
             <p className="text-sm font-medium text-[var(--ink)]">{template.name}</p>
-            <TierBadge tier={template.tier} />
+            <span className="rounded-lg bg-[var(--accent-soft)] px-2 py-1 text-[11px] font-semibold tracking-wide text-[var(--accent)] uppercase">
+              {template.tier}
+            </span>
           </div>
-          <p className="text-xs tracking-wide text-[var(--muted)] uppercase">
-            Blank shell · placeholder copy only
-          </p>
+          <a
+            href="/"
+            className="text-xs tracking-wide text-[var(--muted)] uppercase transition-colors hover:text-[var(--ink)]"
+          >
+            Template Commons
+          </a>
         </div>
       </div>
 

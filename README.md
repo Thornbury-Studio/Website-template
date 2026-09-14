@@ -48,11 +48,13 @@ somebody checking their own contribution.
 
 ## Client showcase (optional sibling)
 
-`showcase/` is a separate Next.js gallery for browsing blank client-facing
-template shells by tier. It does **not** replace Template Commons.
+`showcase/` is a separate Next.js collections gallery inspired by curated
+inspiration boards. It does **not** replace Template Commons.
 
 - Hub (this site): `/`
 - Showcase gallery: `/showcase/`
+
+Includes search, tier filters, motion, and original copyright-free SVG mockups.
 
 Build both together with `npm run build` (outputs `dist/`).
 

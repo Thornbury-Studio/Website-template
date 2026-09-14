@@ -1,25 +1,24 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
-  axes: ["SOFT", "WONK", "opsz"],
 });
 
-const body = Manrope({
+const body = Figtree({
   variable: "--font-body",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Website Templates",
+    default: "Collections · Website Templates",
     template: "%s · Website Templates",
   },
   description:
-    "Client-facing showcase shell for browsing website template tiers and blank layout previews.",
+    "Awwwards-inspired collections gallery for browsing client-facing website template shells by tier.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

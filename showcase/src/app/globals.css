@@ -1,21 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f7f8f6;
-  --mist: #eef2ef;
-  --mist-deep: #e4ebe6;
+  --paper: #f3f3f1;
+  --mist: #e8e8e4;
+  --mist-deep: #dcdcd6;
   --surface: #ffffff;
-  --ink: #142021;
-  --muted: #5b6a6c;
-  --line: #d5ddd8;
-  --accent: #1f6f64;
-  --wire: #e8ece9;
-  --wire-line: #b8c4be;
-  --tier-1-bg: #dceeea;
-  --tier-1-fg: #0f4f48;
-  --tier-2-bg: #e4ebf3;
-  --tier-2-fg: #243b53;
-  --tier-3-bg: #efe6d8;
+  --card: #171717;
+  --ink: #141414;
+  --muted: #6b6b66;
+  --line: #e0e0da;
+  --line-strong: #c8c8c0;
+  --accent: #e4572e;
+  --accent-soft: #f8e4dc;
+  --wire: #ecece8;
+  --wire-line: #bdbdb4;
+  --tier-1-bg: #e4efe9;
+  --tier-1-fg: #1d4d3c;
+  --tier-2-bg: #e6ebf4;
+  --tier-2-fg: #243553;
+  --tier-3-bg: #f1e8db;
   --tier-3-fg: #5c3d1e;
   --background: var(--paper);
   --foreground: var(--ink);
@@ -28,6 +31,15 @@
   --font-display: var(--font-display);
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes rise {
   from {
     opacity: 0;
@@ -36,6 +48,16 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
   }
 }
 
