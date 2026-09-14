@@ -38,13 +38,13 @@ export default async function TemplatePreviewPage({ params }: PreviewPageProps) 
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/"
-              className="rounded-xl px-2 py-1 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--mist)] hover:text-[var(--ink)]"
+              className="rounded-2xl px-2 py-1 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-[var(--accent-deep)]"
             >
               ← Collections
             </Link>
             <span className="hidden h-4 w-px bg-[var(--line)] sm:block" />
             <p className="text-sm font-medium text-[var(--ink)]">{template.name}</p>
-            <span className="rounded-lg bg-[var(--accent-soft)] px-2 py-1 text-[11px] font-semibold tracking-wide text-[var(--accent)] uppercase">
+            <span className="rounded-xl bg-[var(--accent-soft)] px-2 py-1 text-[11px] font-semibold tracking-wide text-[var(--accent-deep)] uppercase">
               {template.tier}
             </span>
           </div>

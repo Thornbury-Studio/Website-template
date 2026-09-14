@@ -10,7 +10,7 @@ export function CollectionsHeader({
   onQueryChange,
 }: CollectionsHeaderProps) {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--paper)_88%,transparent)] backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--paper)_82%,transparent)] backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-[1200px] items-center gap-4 px-5 sm:px-8">
         <a
           href="/"
@@ -35,14 +35,14 @@ export function CollectionsHeader({
           <input
             value={query}
             onChange={(event) => onQueryChange(event.target.value)}
-            placeholder="Search by collections"
-            className="h-11 w-full rounded-2xl border border-transparent bg-[var(--mist)] pr-4 pl-10 text-sm text-[var(--ink)] outline-none transition-[border-color,background-color,box-shadow] placeholder:text-[var(--muted)] focus:border-[var(--line-strong)] focus:bg-[var(--surface)] focus:shadow-[0_10px_30px_-18px_rgba(20,20,20,0.35)]"
+            placeholder="Search the bakery tray"
+            className="h-11 w-full rounded-2xl border border-transparent bg-white/80 pr-4 pl-10 text-sm text-[var(--ink)] outline-none transition-[border-color,background-color,box-shadow] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:bg-white focus:shadow-[0_12px_30px_-18px_rgba(228,93,130,0.55)]"
           />
         </label>
 
         <a
           href="/"
-          className="hidden shrink-0 text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)] sm:inline"
+          className="hidden shrink-0 text-sm text-[var(--muted)] transition-colors hover:text-[var(--accent-deep)] sm:inline"
         >
           Template Commons
         </a>

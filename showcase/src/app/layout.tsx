@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Figtree } from "next/font/google";
+import { Fraunces, Nunito } from "next/font/google";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
 });
 
-const body = Figtree({
+const body = Nunito({
   variable: "--font-body",
   subsets: ["latin"],
 });
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s · Website Templates",
   },
   description:
-    "Awwwards-inspired collections gallery for browsing client-facing website template shells by tier.",
+    "Cupcake-themed collections gallery for browsing client-facing website template shells.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

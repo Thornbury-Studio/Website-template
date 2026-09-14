@@ -21,7 +21,7 @@ export function CollectionsFilters({
     <div className="mx-auto flex max-w-[1200px] flex-col gap-4 px-5 pb-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
       <div className="flex flex-wrap items-center gap-2">
         <span className="mr-1 text-xs font-semibold tracking-[0.14em] text-[var(--muted)] uppercase">
-          Category
+          Flavor
         </span>
         {FILTERS.map((filter) => {
           const isActive = active === filter;
@@ -30,23 +30,23 @@ export function CollectionsFilters({
               key={filter}
               type="button"
               onClick={() => onChange(filter)}
-              className={`h-10 rounded-xl px-3.5 text-sm font-medium transition-all duration-200 ${
+              className={`h-10 rounded-2xl px-3.5 text-sm font-medium transition-all duration-200 ${
                 isActive
-                  ? "bg-[var(--ink)] text-[var(--paper)] shadow-[0_12px_24px_-16px_rgba(20,20,20,0.8)]"
-                  : "bg-[var(--surface)] text-[var(--muted)] ring-1 ring-[var(--line)] hover:text-[var(--ink)] hover:ring-[var(--line-strong)]"
+                  ? "bg-[var(--accent)] text-white shadow-[0_12px_24px_-14px_rgba(228,93,130,0.9)]"
+                  : "bg-white/85 text-[var(--muted)] ring-1 ring-[var(--line)] hover:text-[var(--ink)] hover:ring-[var(--accent)]"
               }`}
             >
               {filter}
             </button>
           );
         })}
-        <span className="ml-1 inline-flex h-7 min-w-7 items-center justify-center rounded-lg bg-[var(--accent-soft)] px-2 text-xs font-bold text-[var(--accent)]">
+        <span className="ml-1 inline-flex h-7 min-w-7 items-center justify-center rounded-xl bg-[var(--accent-soft)] px-2 text-xs font-bold text-[var(--accent-deep)]">
           {resultCount}
         </span>
         <button
           type="button"
           onClick={onReset}
-          className="ml-1 inline-flex h-10 items-center gap-2 rounded-xl px-3 text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+          className="ml-1 inline-flex h-10 items-center gap-2 rounded-2xl px-3 text-sm text-[var(--muted)] transition-colors hover:text-[var(--accent-deep)]"
         >
           <svg
             className="h-3.5 w-3.5"
@@ -59,11 +59,11 @@ export function CollectionsFilters({
             <path d="M3 12a9 9 0 1 0 3-6.7" />
             <path d="M3 4v5h5" />
           </svg>
-          Reset filters
+          Reset tray
         </button>
       </div>
       <p className="text-sm text-[var(--muted)]">
-        Best selection of shells for client inspiration
+        Soft shells, sweet previews — click to take a bite
       </p>
     </div>
   );
