@@ -18,11 +18,15 @@ export interface TemplateItem {
   tier: TemplateTier;
   tags: string[];
   previewUrl: string;
-  thumbnailPlaceholder: "16 / 9";
+  thumbnailPlaceholder: "4 / 3";
   category: string;
   sitesCount: number;
   tone: MockupTone;
   accentLabel: string;
+  author: string;
+  authorInitials: string;
+  added: string;
+  score: string;
 }
 
 export type TierFilter = "All" | TemplateTier;

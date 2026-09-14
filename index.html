@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Template Commons — open website template collection</title>
-  <meta name="description" content="An open collection of self-contained website templates. Browse the client showcase, or contribute a plain HTML/CSS/JS folder.">
+  <meta name="description" content="Self-contained website templates. Plain HTML, CSS and JavaScript.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#ebf6f7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Template Commons">
   <meta property="og:title" content="Template Commons">
-  <meta property="og:description" content="An open collection of self-contained website templates. Plain HTML, CSS and JavaScript. Anyone can add one.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ebf6f7'/><rect x='6' y='8' width='8' height='16' rx='2' fill='%23e06b88'/><rect x='16' y='8' width='10' height='7' rx='2' fill='%231c2426'/><rect x='16' y='17' width='10' height='7' rx='2' fill='%236db8b4'/></svg>">
+  <meta property="og:description" content="Self-contained website templates. Plain HTML, CSS and JavaScript.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ebf6f7'/><rect x='6' y='8' width='8' height='16' rx='2' fill='%232f6f68'/><rect x='16' y='8' width='10' height='7' rx='2' fill='%231c2426'/><rect x='16' y='17' width='10' height='7' rx='2' fill='%236db8b4'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,560&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -19,7 +19,99 @@
 </head>
 <body>
 
-<a class="skip" href="#collection">Skip to the collection</a>
+<div class="bg-scape" aria-hidden="true">
+  <div class="bg-scape__fluid">
+    <span class="bg-scape__blob bg-scape__blob--mint"></span>
+    <span class="bg-scape__blob bg-scape__blob--foam"></span>
+    <span class="bg-scape__blob bg-scape__blob--blush"></span>
+    <span class="bg-scape__blob bg-scape__blob--mist"></span>
+  </div>
+
+  <div class="bg-scape__blur">
+    <div class="bg-scape__grid"></div>
+    <svg class="bg-scape__art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <defs>
+        <linearGradient id="bgStroke" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#6a9e99" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#a8c9c6" stop-opacity="0.25"/>
+        </linearGradient>
+        <linearGradient id="bgPanel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#e8f0f0" stop-opacity="0.3"/>
+        </linearGradient>
+        <linearGradient id="bgHero" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#7aada8" stop-opacity="0.5"/>
+          <stop offset="55%" stop-color="#b7d4d1" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#f3eeef" stop-opacity="0.55"/>
+        </linearGradient>
+      </defs>
+
+      <text x="72" y="820" fill="#4a5c5c" fill-opacity="0.22" font-family="Georgia, serif" font-size="180" font-weight="600" letter-spacing="-6">COMMONS</text>
+
+      <circle cx="1180" cy="120" r="220" fill="none" stroke="url(#bgStroke)" stroke-width="2"/>
+      <circle cx="1180" cy="120" r="160" fill="none" stroke="#7aada8" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="6 10"/>
+      <circle cx="1180" cy="120" r="95" fill="none" stroke="#8a9a9a" stroke-opacity="0.2" stroke-width="1.5"/>
+      <circle cx="160" cy="760" r="180" fill="none" stroke="#a8c9c6" stroke-opacity="0.3" stroke-width="2"/>
+      <circle cx="160" cy="760" r="110" fill="none" stroke="#7aada8" stroke-opacity="0.22" stroke-dasharray="4 8"/>
+
+      <g transform="translate(70 90) rotate(-8)">
+        <rect x="0" y="0" width="280" height="190" rx="18" fill="url(#bgPanel)" stroke="#b8cecd" stroke-opacity="0.6"/>
+        <rect x="0" y="0" width="280" height="28" rx="18" fill="#5f7373" fill-opacity="0.45"/>
+        <rect x="22" y="48" width="120" height="10" rx="3" fill="#5f7373" fill-opacity="0.2"/>
+        <rect x="22" y="90" width="70" height="22" rx="8" fill="#7aada8" fill-opacity="0.4"/>
+        <rect x="150" y="48" width="108" height="78" rx="10" fill="url(#bgHero)"/>
+      </g>
+
+      <g transform="translate(980 420) rotate(7)">
+        <rect x="0" y="0" width="320" height="210" rx="18" fill="url(#bgPanel)" stroke="#b8cecd" stroke-opacity="0.55"/>
+        <rect x="0" y="0" width="320" height="28" rx="18" fill="#5f7373" fill-opacity="0.4"/>
+        <rect x="24" y="52" width="160" height="12" rx="3" fill="#5f7373" fill-opacity="0.18"/>
+        <rect x="24" y="100" width="272" height="78" rx="12" fill="url(#bgHero)"/>
+      </g>
+
+      <g transform="translate(520 620) rotate(-4)">
+        <rect x="0" y="0" width="150" height="110" rx="14" fill="#ffffff" fill-opacity="0.4" stroke="#c9d8d7"/>
+        <rect x="14" y="34" width="122" height="52" rx="8" fill="#a8c9c6" fill-opacity="0.35"/>
+        <rect x="170" y="18" width="150" height="110" rx="14" fill="#ffffff" fill-opacity="0.35" stroke="#c9d8d7"/>
+        <rect x="184" y="52" width="122" height="52" rx="8" fill="#d8c9cb" fill-opacity="0.35"/>
+      </g>
+
+      <g fill="none" stroke="#7aada8" stroke-opacity="0.28" stroke-width="2">
+        <path d="M360 200 C480 140, 620 260, 760 210"/>
+        <path d="M240 520 C380 480, 420 600, 580 560"/>
+        <path d="M900 280 C980 340, 1040 300, 1120 360"/>
+      </g>
+      <g fill="#7aada8" fill-opacity="0.35">
+        <circle cx="360" cy="200" r="5"/>
+        <circle cx="760" cy="210" r="5"/>
+        <circle cx="240" cy="520" r="4"/>
+        <circle cx="580" cy="560" r="4"/>
+        <circle cx="900" cy="280" r="4"/>
+        <circle cx="1120" cy="360" r="4"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="bg-scape__veil"></div>
+  <div class="bg-scape__grain"></div>
+</div>
+
+<a class="skip" href="#featured">Skip to templates</a>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>HTML · CSS · JS</span><span class="ticker__dot">●</span>
+    <span>No build step</span><span class="ticker__dot">●</span>
+    <span>Click to preview</span><span class="ticker__dot">●</span>
+    <span>Self-contained folders</span><span class="ticker__dot">●</span>
+    <span>Open collection</span><span class="ticker__dot">●</span>
+    <span>HTML · CSS · JS</span><span class="ticker__dot">●</span>
+    <span>No build step</span><span class="ticker__dot">●</span>
+    <span>Click to preview</span><span class="ticker__dot">●</span>
+    <span>Self-contained folders</span><span class="ticker__dot">●</span>
+    <span>Open collection</span><span class="ticker__dot">●</span>
+  </div>
+</div>
 
 <header class="top">
   <div class="wrap top__in">
@@ -28,7 +120,7 @@
       Template&nbsp;Commons
     </a>
     <nav class="top__nav" aria-label="Primary">
-      <a href="#add">How to add</a>
+      <a href="#featured">Templates</a>
       <a href="/showcase/">Showcase</a>
       <a href="https://github.com/sengchun75-stack/Website-template">Repository</a>
     </nav>
@@ -38,99 +130,206 @@
 <main>
 
   <section class="hero">
-    <div class="wrap">
-      <p class="hero__eyebrow">Open template collection</p>
-      <h1>Template Commons<br><em>website templates</em> worth starting from.</h1>
-      <div class="hero__foot">
-        <p class="hero__lede">Self-contained HTML, CSS and JavaScript folders — no build step, no shared dependencies. Browse polished client shells in the showcase, or contribute your own template to the commons.</p>
-        <dl class="hero__stat">
-          <dt>In the collection</dt>
-          <dd id="count">none yet</dd>
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrap hero__grid">
+      <div class="hero__copy rise">
+        <p class="hero__eyebrow">Open collection</p>
+        <h1>Template<br>Commons</h1>
+        <p class="hero__lede">Ready-to-open website shells. Click a card, walk the preview, then make it yours.</p>
+        <div class="hero__actions">
+          <a class="button" href="#featured">See templates</a>
+          <a class="button button--ghost" href="/showcase/">Full showcase</a>
+        </div>
+        <dl class="hero__chips" aria-label="Quick facts">
+          <div><dt>Shells</dt><dd>9</dd></div>
+          <div><dt>Stack</dt><dd>HTML/CSS/JS</dd></div>
+          <div><dt>Build</dt><dd>None</dd></div>
         </dl>
       </div>
-      <div class="hero__actions">
-        <a class="button" href="/showcase/">Browse showcase</a>
-        <a class="button button--ghost" href="#add">How to add one</a>
+
+      <div class="hero__stage rise rise--delay" aria-hidden="true">
+        <div class="stage-window">
+          <div class="stage-window__bar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="stage-window__body">
+            <div class="stage-window__nav"></div>
+            <div class="stage-window__hero"></div>
+            <div class="stage-window__row">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+        <div class="stage-float stage-float--a">Preview live</div>
+        <div class="stage-float stage-float--b">Tiered shells</div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="collection">
-    <div class="wrap">
-      <h2 class="section-head"><span class="section-head__n">01</span>The collection</h2>
+  <section class="how" aria-label="How it works">
+    <div class="wrap how__row">
+      <div class="how__item rise">
+        <span class="how__n">01</span>
+        <h2>Browse</h2>
+        <p>Pick a shell that matches the job.</p>
+      </div>
+      <div class="how__item rise">
+        <span class="how__n">02</span>
+        <h2>Click through</h2>
+        <p>Open the live preview and try the links.</p>
+      </div>
+      <div class="how__item rise">
+        <span class="how__n">03</span>
+        <h2>Customize</h2>
+        <p>Swap copy, colors, and images — keep the structure.</p>
+      </div>
+    </div>
+  </section>
 
-      <noscript>
-        <p class="notice">The collection is listed by a small script in
-          <code>js/main.js</code>. With JavaScript turned off the list below will
-          not appear — the templates themselves are still in the
-          <code>templates/</code> folder of the repository.</p>
-      </noscript>
+  <section class="section" id="featured">
+    <div class="wrap">
+      <h2 class="section-head"><span class="section-head__n">01</span>Start here</h2>
+      <p class="section-lede">Pick a shell. Each opens a live preview you can click through.</p>
+
+      <div class="grid">
+        <article class="card">
+          <a class="card__hit" href="/showcase/templates/preview/minimalist-portfolio-shell/">
+            <div class="card__shot card__shot--tone-slate">
+              <div class="mini-ui" aria-hidden="true">
+                <div class="mini-ui__bar"><span></span><span></span><span></span></div>
+                <div class="mini-ui__line mini-ui__line--lg"></div>
+                <div class="mini-ui__line"></div>
+                <div class="mini-ui__block"></div>
+              </div>
+              <span class="card__open">Open preview</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Minimalist Portfolio</h3>
+              <p class="card__desc">Work samples, bio, and contact — quiet and clean.</p>
+              <p class="card__meta"><span class="card__tag">Tier 1</span><span class="card__tag">Personal</span></p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a class="card__hit" href="/showcase/templates/preview/local-services-landing/">
+            <div class="card__shot card__shot--tone-forest">
+              <div class="mini-ui" aria-hidden="true">
+                <div class="mini-ui__bar"><span></span><span></span><span></span></div>
+                <div class="mini-ui__line mini-ui__line--lg"></div>
+                <div class="mini-ui__line"></div>
+                <div class="mini-ui__block"></div>
+              </div>
+              <span class="card__open">Open preview</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Local Services</h3>
+              <p class="card__desc">Offer, proof, and inquiry CTA for a local business.</p>
+              <p class="card__meta"><span class="card__tag">Tier 1</span><span class="card__tag">Services</span></p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a class="card__hit" href="/showcase/templates/preview/studio-brand-kit/">
+            <div class="card__shot card__shot--tone-sand">
+              <div class="mini-ui" aria-hidden="true">
+                <div class="mini-ui__bar"><span></span><span></span><span></span></div>
+                <div class="mini-ui__line mini-ui__line--lg"></div>
+                <div class="mini-ui__line"></div>
+                <div class="mini-ui__block"></div>
+              </div>
+              <span class="card__open">Open preview</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Studio Brand Kit</h3>
+              <p class="card__desc">Agency story, capabilities, and lead capture.</p>
+              <p class="card__meta"><span class="card__tag">Tier 2</span><span class="card__tag">Agency</span></p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a class="card__hit" href="/showcase/templates/preview/saas-standard-framework/">
+            <div class="card__shot card__shot--tone-ink">
+              <div class="mini-ui" aria-hidden="true">
+                <div class="mini-ui__bar"><span></span><span></span><span></span></div>
+                <div class="mini-ui__line mini-ui__line--lg"></div>
+                <div class="mini-ui__line"></div>
+                <div class="mini-ui__block"></div>
+              </div>
+              <span class="card__open">Open preview</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">SaaS Framework</h3>
+              <p class="card__desc">Features, social proof, and a conversion CTA.</p>
+              <p class="card__meta"><span class="card__tag">Tier 2</span><span class="card__tag">Product</span></p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a class="card__hit" href="/showcase/templates/preview/editorial-magazine-frame/">
+            <div class="card__shot card__shot--tone-rose">
+              <div class="mini-ui" aria-hidden="true">
+                <div class="mini-ui__bar"><span></span><span></span><span></span></div>
+                <div class="mini-ui__line mini-ui__line--lg"></div>
+                <div class="mini-ui__line"></div>
+                <div class="mini-ui__block"></div>
+              </div>
+              <span class="card__open">Open preview</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Editorial Magazine</h3>
+              <p class="card__desc">Typography-led stories and a subscribe path.</p>
+              <p class="card__meta"><span class="card__tag">Tier 2</span><span class="card__tag">Editorial</span></p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a class="card__hit" href="/showcase/templates/preview/commerce-catalog-frame/">
+            <div class="card__shot card__shot--tone-citrus">
+              <div class="mini-ui" aria-hidden="true">
+                <div class="mini-ui__bar"><span></span><span></span><span></span></div>
+                <div class="mini-ui__line mini-ui__line--lg"></div>
+                <div class="mini-ui__line"></div>
+                <div class="mini-ui__block"></div>
+              </div>
+              <span class="card__open">Open preview</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Commerce Catalog</h3>
+              <p class="card__desc">Merch hero, highlights, and checkout CTA.</p>
+              <p class="card__meta"><span class="card__tag">Tier 3</span><span class="card__tag">Commerce</span></p>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <p class="section-more">
+        <a class="button" href="/showcase/">Browse all 9 in the showcase</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section band" id="collection">
+    <div class="wrap">
+      <h2 class="section-head"><span class="section-head__n">02</span>Community uploads</h2>
+      <p class="section-lede">Contributor folders from the repo. Empty until someone adds one.</p>
 
       <div class="grid" id="grid" hidden></div>
 
       <div class="empty panel" id="empty">
         <div class="empty__say">
-          <h3>No templates yet.</h3>
-          <p>This hub is ready for the first contribution. Until then, explore the client showcase for curated blank shells by tier.</p>
+          <h3>No community templates yet.</h3>
+          <p>Use a shell above for now — or add your own folder when you’re ready.</p>
           <p class="empty__cta">
-            <a class="button" href="/showcase/">Open showcase</a>
-            <a class="button button--ghost" href="#add">Add the first one</a>
+            <a class="button" href="#featured">Back to shells</a>
+            <a class="button button--ghost" href="CONTRIBUTING.md">How to contribute</a>
           </p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section add" id="add">
-    <div class="wrap">
-      <h2 class="section-head"><span class="section-head__n">02</span>Adding a template</h2>
-      <p class="add__lede">Three steps. The whole convention fits on this page —
-        <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> is the same thing written out
-        at length, and <a href="templates/README.md">templates/README.md</a>
-        describes the folder itself.</p>
-
-      <ol class="steps">
-        <li class="step">
-          <p class="step__n">01</p>
-          <h3>Make your folder</h3>
-          <p>Create <code>templates/your-slug/</code> with an
-            <code>index.html</code> and its own <code>css/</code>,
-            <code>js/</code> and <code>img/</code> inside it. Lowercase letters,
-            digits and single hyphens in the slug.</p>
-        </li>
-        <li class="step">
-          <p class="step__n">02</p>
-          <h3>Keep it self-contained</h3>
-          <p>Nothing outside your own folder. No build step, no bundler, no
-            importing another template&rsquo;s stylesheet. If it needs a library,
-            put a copy in your folder or load it from a CDN.</p>
-        </li>
-        <li class="step">
-          <p class="step__n">03</p>
-          <h3>Add one entry</h3>
-          <p>Append an object to the array in <code>js/templates.js</code>, then
-            open a pull request. That file is the only thing you change outside
-            your folder.</p>
-        </li>
-      </ol>
-
-      <figure class="snippet">
-        <figcaption>js/templates.js</figcaption>
-        <pre><code>window.TEMPLATES = [
-
-  {
-    slug:        'your-slug',
-    title:       'Your Template',
-    description: 'One sentence about what it is for.',
-    author:      'Your Name',
-    authorUrl:   'https://github.com/yourhandle',
-    tags:        ['portfolio', 'one-page'],
-    added:       '2026-01-31',
-    thumb:       'templates/your-slug/img/thumb.webp'
-  }
-
-];</code></pre>
-      </figure>
     </div>
   </section>
 
@@ -139,8 +338,7 @@
 <footer class="foot">
   <div class="wrap foot__in">
     <p class="foot__mark">Template Commons</p>
-    <p class="foot__note">An open collection. Each template belongs to whoever
-      wrote it; see that template&rsquo;s own folder for its terms.</p>
+    <p class="foot__note">Each template keeps its own terms in its folder.</p>
     <p class="foot__links">
       <a href="/showcase/">Showcase</a>
       <a href="https://github.com/sengchun75-stack/Website-template">Repository</a>

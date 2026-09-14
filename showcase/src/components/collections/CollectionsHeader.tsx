@@ -10,11 +10,11 @@ export function CollectionsHeader({
   onQueryChange,
 }: CollectionsHeaderProps) {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--paper)_84%,transparent)] backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center gap-4 px-5 sm:px-8">
+    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--paper)_88%,transparent)] backdrop-blur-xl">
+      <div className="mx-auto flex h-14 max-w-[1480px] items-center gap-4 px-4 sm:px-6 lg:px-8">
         <a
           href="/"
-          className="shrink-0 font-[family-name:var(--font-display)] text-lg tracking-tight text-[var(--ink)]"
+          className="shrink-0 text-[15px] font-semibold tracking-tight text-[var(--ink)]"
         >
           TC<span className="text-[var(--accent)]">.</span>
         </a>
@@ -36,7 +36,7 @@ export function CollectionsHeader({
             value={query}
             onChange={(event) => onQueryChange(event.target.value)}
             placeholder="Search templates"
-            className="h-11 w-full rounded-2xl border border-transparent bg-white/90 pr-4 pl-10 text-sm text-[var(--ink)] outline-none transition-[border-color,box-shadow] placeholder:text-[var(--muted)] focus:border-[var(--line-strong)] focus:shadow-[0_12px_30px_-18px_rgba(28,36,38,0.25)]"
+            className="h-10 w-full rounded-md border border-[#e0e0e0] bg-white pr-4 pl-10 text-sm text-[var(--ink)] outline-none transition-[border-color,box-shadow] placeholder:text-[var(--muted)] focus:border-[#111] focus:shadow-[0_8px_24px_-16px_rgba(17,17,17,0.35)]"
           />
         </label>
 

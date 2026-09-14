@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import type { TemplateItem } from "@/types/template";
+import { tierBadge } from "@/data/templates";
 import { MockupArt } from "./MockupArt";
-import { useCupcakeBite } from "./CupcakeBite";
+import { useTemplateDetail } from "./TemplateDetail";
 
 interface CollectionCardProps {
   template: TemplateItem;
@@ -11,73 +12,63 @@ interface CollectionCardProps {
 }
 
 export function CollectionCard({ template, index }: CollectionCardProps) {
-  const { biteInto, isBiting } = useCupcakeBite();
+  const { openDetail, active } = useTemplateDetail();
+  const badge = tierBadge(template.tier);
+  const isOpen = active?.id === template.id;
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{
-        duration: 0.5,
-        delay: (index % 6) * 0.05,
+        duration: 0.55,
+        delay: (index % 8) * 0.04,
         ease: [0.22, 1, 0.36, 1],
       }}
       className="group"
     >
       <button
         type="button"
-        disabled={isBiting}
-        onClick={(event) => {
-          biteInto(template.previewUrl, template.name, {
-            x: event.clientX,
-            y: event.clientY,
-          });
-        }}
-        className="w-full cursor-pointer text-left focus:outline-none disabled:cursor-wait"
+        disabled={Boolean(active)}
+        onClick={() => openDetail(template)}
+        className="w-full cursor-pointer text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#111] disabled:cursor-wait"
+        aria-expanded={isOpen}
       >
-        <motion.div
-          whileHover={{ y: -5 }}
-          whileTap={{ scale: 0.975 }}
-          transition={{ type: "spring", stiffness: 420, damping: 24 }}
-          className="overflow-hidden rounded-[1.35rem] border border-[var(--line)] bg-white shadow-[0_16px_36px_-28px_rgba(28,36,38,0.4)] transition-shadow duration-500 group-hover:shadow-[0_24px_48px_-28px_rgba(201,79,109,0.28)]"
-        >
-          <div
-            className="relative overflow-hidden bg-[var(--wire)]"
-            style={{ aspectRatio: template.thumbnailPlaceholder }}
+        <div className="overflow-hidden rounded-[6px] bg-[#f0f0f0]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.035]">
+            <div className="h-full w-full transition-transform duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]">
               <MockupArt
                 tone={template.tone}
                 label={template.accentLabel}
                 title={template.name}
               />
             </div>
+            <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/8" />
+          </motion.div>
+        </div>
 
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1c2426]/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="absolute inset-x-0 bottom-0 flex translate-y-2 items-end justify-between p-3.5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-              <span className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold tracking-wide text-[var(--ink)] uppercase">
-                View preview
-              </span>
-              <span className="rounded-full bg-[var(--accent-soft)] px-2.5 py-1.5 text-xs font-semibold text-[var(--accent-deep)]">
-                {template.tier}
-              </span>
-            </div>
+        <div className="mt-2.5 flex items-center justify-between gap-2 px-0.5">
+          <div className="flex min-w-0 items-center gap-2">
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#1a1a1a] text-[8px] font-bold tracking-wide text-white">
+              {template.authorInitials}
+            </span>
+            <span className="truncate text-[12px] text-[#444]">
+              {template.author}
+            </span>
           </div>
-        </motion.div>
-
-        <div className="mt-3.5 flex items-start justify-between gap-3 px-0.5">
-          <div className="min-w-0">
-            <h3 className="truncate font-[family-name:var(--font-display)] text-lg tracking-tight text-[var(--ink)] transition-colors group-hover:text-[var(--accent-deep)]">
-              {template.name}
-            </h3>
-            <p className="mt-0.5 truncate text-sm text-[var(--muted)]">
-              {template.category} · {template.tags.slice(0, 2).join(" · ")}
-            </p>
+          <div className="flex shrink-0 items-center gap-1">
+            <span className="rounded-[3px] border border-[#d8d8d8] px-1.5 py-[2px] text-[10px] font-semibold tracking-wide text-[#555] uppercase">
+              {badge}
+            </span>
+            <span className="rounded-[3px] border border-[#d8d8d8] px-1.5 py-[2px] text-[10px] font-semibold tracking-wide text-[#c94f6d] uppercase">
+              {template.category.slice(0, 4)}
+            </span>
           </div>
-          <span className="shrink-0 pt-1 text-sm font-medium text-[var(--muted)]">
-            +{template.sitesCount}
-          </span>
         </div>
       </button>
     </motion.article>

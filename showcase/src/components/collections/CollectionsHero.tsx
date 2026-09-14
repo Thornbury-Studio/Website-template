@@ -8,24 +8,26 @@ interface CollectionsHeroProps {
 
 export function CollectionsHero({ total }: CollectionsHeroProps) {
   return (
-    <section className="mx-auto max-w-[1200px] px-5 pt-10 pb-6 sm:px-8 sm:pt-14">
+    <section className="mx-auto max-w-[1480px] px-4 pt-10 pb-5 sm:px-6 sm:pt-12 lg:px-8">
       <motion.div
-        initial={{ opacity: 0, y: 18 }}
+        initial={{ opacity: 0, y: 22 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="flex flex-wrap items-end justify-between gap-4"
       >
-        <div className="flex flex-wrap items-end gap-3">
-          <h1 className="font-[family-name:var(--font-display)] text-5xl leading-none tracking-tight text-[var(--ink)] sm:text-6xl md:text-7xl">
-            Templates
+        <div>
+          <h1 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] leading-none font-semibold tracking-[-0.03em] text-[#111]">
+            Templates.{" "}
+            <span className="text-[#888]">Blank shells for client picks.</span>{" "}
+            <span className="align-middle text-[0.55em] font-medium text-[#999]">
+              [{total}]
+            </span>
           </h1>
-          <span className="mb-1 rounded-2xl bg-white px-2.5 py-1 text-sm font-semibold text-[var(--muted)] ring-1 ring-[var(--line)]">
-            {total}
-          </span>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#666] sm:text-base">
+            Structure only — no live client content. Click a card for the full
+            detail view, then open the blank wireframe preview.
+          </p>
         </div>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
-          Browse polished template shells from the collection. Each card opens a
-          blank wireframe preview — structure only, no live client content.
-        </p>
       </motion.div>
     </section>
   );

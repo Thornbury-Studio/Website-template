@@ -81,10 +81,11 @@ export function MockupArt({ tone, label, title }: MockupArtProps) {
 
   return (
     <svg
-      viewBox="0 0 800 500"
+      viewBox="0 0 800 600"
       className="h-full w-full"
       role="img"
       aria-label={`${title} preview mockup`}
+      preserveAspectRatio="xMidYMid slice"
     >
       <defs>
         <linearGradient id={`g-${tone}`} x1="0" y1="0" x2="1" y2="1">
@@ -101,35 +102,35 @@ export function MockupArt({ tone, label, title }: MockupArtProps) {
         </pattern>
       </defs>
 
-      <rect width="800" height="500" fill={`url(#g-${tone})`} />
-      <rect width="800" height="500" fill={`url(#dots-${tone})`} />
+      <rect width="800" height="600" fill={`url(#g-${tone})`} />
+      <rect width="800" height="600" fill={`url(#dots-${tone})`} />
 
       <rect
         x="48"
-        y="42"
+        y="52"
         width="704"
-        height="416"
-        rx="18"
+        height="496"
+        rx="14"
         fill={p.panel}
         opacity="0.96"
       />
       <rect
         x="48"
-        y="42"
+        y="52"
         width="704"
         height="54"
-        rx="18"
+        rx="14"
         fill={p.accent}
         opacity="0.92"
       />
-      <rect x="48" y="78" width="704" height="18" fill={p.accent} />
+      <rect x="48" y="88" width="704" height="18" fill={p.accent} />
 
-      <circle cx="78" cy="69" r="6" fill={p.panel} opacity="0.55" />
-      <circle cx="98" cy="69" r="6" fill={p.panel} opacity="0.4" />
-      <circle cx="118" cy="69" r="6" fill={p.panel} opacity="0.28" />
+      <circle cx="78" cy="79" r="6" fill={p.panel} opacity="0.55" />
+      <circle cx="98" cy="79" r="6" fill={p.panel} opacity="0.4" />
+      <circle cx="118" cy="79" r="6" fill={p.panel} opacity="0.28" />
       <rect
         x="560"
-        y="58"
+        y="68"
         width="160"
         height="18"
         rx="4"
@@ -137,39 +138,39 @@ export function MockupArt({ tone, label, title }: MockupArtProps) {
         opacity="0.28"
       />
 
-      <rect x="78" y="120" width="260" height="18" rx="4" fill={p.ink} opacity="0.8" />
-      <rect x="78" y="150" width="210" height="10" rx="3" fill={p.soft} />
-      <rect x="78" y="168" width="180" height="10" rx="3" fill={p.soft} opacity="0.7" />
-      <rect x="78" y="198" width="110" height="34" rx="8" fill={p.accent} />
+      <rect x="78" y="140" width="260" height="18" rx="4" fill={p.ink} opacity="0.8" />
+      <rect x="78" y="170" width="210" height="10" rx="3" fill={p.soft} />
+      <rect x="78" y="188" width="180" height="10" rx="3" fill={p.soft} opacity="0.7" />
+      <rect x="78" y="218" width="110" height="34" rx="8" fill={p.accent} />
 
       <rect
         x="400"
-        y="120"
+        y="140"
         width="320"
-        height="190"
-        rx="14"
+        height="220"
+        rx="12"
         fill={p.bg}
         stroke={p.soft}
         strokeWidth="2"
       />
       <path
-        d={`M400 280 L480 210 L540 250 L620 180 L720 260 L720 310 L400 310 Z`}
+        d={`M400 320 L480 240 L540 285 L620 200 L720 300 L720 360 L400 360 Z`}
         fill={p.accent}
         opacity="0.22"
       />
-      <circle cx="560" cy="190" r="28" fill={p.accent} opacity="0.35" />
+      <circle cx="560" cy="210" r="28" fill={p.accent} opacity="0.35" />
 
-      <rect x="78" y="260" width="140" height="88" rx="12" fill={p.bg} />
-      <rect x="238" y="260" width="140" height="88" rx="12" fill={p.bg} />
-      <rect x="98" y="280" width="100" height="10" rx="3" fill={p.soft} />
-      <rect x="98" y="300" width="78" height="8" rx="3" fill={p.soft} opacity="0.7" />
-      <rect x="258" y="280" width="100" height="10" rx="3" fill={p.soft} />
-      <rect x="258" y="300" width="78" height="8" rx="3" fill={p.soft} opacity="0.7" />
+      <rect x="78" y="300" width="140" height="100" rx="12" fill={p.bg} />
+      <rect x="238" y="300" width="140" height="100" rx="12" fill={p.bg} />
+      <rect x="98" y="325" width="100" height="10" rx="3" fill={p.soft} />
+      <rect x="98" y="345" width="78" height="8" rx="3" fill={p.soft} opacity="0.7" />
+      <rect x="258" y="325" width="100" height="10" rx="3" fill={p.soft} />
+      <rect x="258" y="345" width="78" height="8" rx="3" fill={p.soft} opacity="0.7" />
 
-      <rect x="78" y="372" width="642" height="52" rx="12" fill={p.ink} opacity="0.08" />
+      <rect x="78" y="450" width="642" height="60" rx="12" fill={p.ink} opacity="0.08" />
       <text
         x="100"
-        y="404"
+        y="486"
         fill={p.ink}
         fontFamily="ui-sans-serif, system-ui, sans-serif"
         fontSize="18"
@@ -180,14 +181,14 @@ export function MockupArt({ tone, label, title }: MockupArtProps) {
       </text>
       <text
         x="560"
-        y="404"
+        y="486"
         fill={p.accent}
         fontFamily="ui-sans-serif, system-ui, sans-serif"
         fontSize="14"
         fontWeight="700"
         letterSpacing="1.5"
       >
-        16:9 MOCKUP
+        4:3 MOCKUP
       </text>
     </svg>
   );

@@ -18,11 +18,8 @@ export function CollectionsFilters({
   onReset,
 }: CollectionsFiltersProps) {
   return (
-    <div className="mx-auto flex max-w-[1200px] flex-col gap-4 px-5 pb-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+    <div className="mx-auto flex max-w-[1480px] flex-col gap-3 px-4 pb-7 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="mr-1 text-xs font-semibold tracking-[0.14em] text-[var(--muted)] uppercase">
-          Tier
-        </span>
         {FILTERS.map((filter) => {
           const isActive = active === filter;
           return (
@@ -30,23 +27,20 @@ export function CollectionsFilters({
               key={filter}
               type="button"
               onClick={() => onChange(filter)}
-              className={`h-10 rounded-full px-3.5 text-sm font-medium transition-all duration-200 ${
+              className={`h-9 rounded-md border px-3 text-[13px] font-medium transition-colors ${
                 isActive
-                  ? "bg-[var(--ink)] text-white shadow-[0_12px_24px_-16px_rgba(28,36,38,0.55)]"
-                  : "bg-white text-[var(--muted)] ring-1 ring-[var(--line)] hover:text-[var(--ink)] hover:ring-[var(--line-strong)]"
+                  ? "border-[#111] bg-[#111] text-white"
+                  : "border-[#d4d4d4] bg-white text-[#555] hover:border-[#111] hover:text-[#111]"
               }`}
             >
               {filter}
             </button>
           );
         })}
-        <span className="ml-1 inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-[var(--accent-soft)] px-2 text-xs font-bold text-[var(--accent-deep)]">
-          {resultCount}
-        </span>
         <button
           type="button"
           onClick={onReset}
-          className="ml-1 inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]"
+          className="ml-1 inline-flex h-9 items-center gap-2 px-2 text-[13px] text-[#777] transition-colors hover:text-[#111]"
         >
           <svg
             className="h-3.5 w-3.5"
@@ -62,9 +56,7 @@ export function CollectionsFilters({
           Reset filters
         </button>
       </div>
-      <p className="text-sm text-[var(--muted)]">
-        Media-first shells for client selection
-      </p>
+      <p className="text-[13px] text-[#888]">{resultCount} templates</p>
     </div>
   );
 }

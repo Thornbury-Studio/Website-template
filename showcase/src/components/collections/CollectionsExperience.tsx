@@ -8,7 +8,8 @@ import { CollectionsHeader } from "./CollectionsHeader";
 import { CollectionsHero } from "./CollectionsHero";
 import { CollectionsMarquee } from "./CollectionsMarquee";
 import { CollectionCard } from "./CollectionsCard";
-import { CupcakeBiteProvider } from "./CupcakeBite";
+import { TemplateDetailProvider } from "./TemplateDetail";
+import { SmoothCursor } from "./SmoothCursor";
 
 interface CollectionsExperienceProps {
   templates: TemplateItem[];
@@ -42,8 +43,10 @@ export function CollectionsExperience({
   };
 
   return (
-    <CupcakeBiteProvider>
-      <div className="min-h-screen">
+    <TemplateDetailProvider>
+      <div className="relative min-h-screen">
+        <div className="film-grain" aria-hidden="true" />
+        <SmoothCursor />
         <CollectionsMarquee />
         <CollectionsHeader query={query} onQueryChange={setQuery} />
         <CollectionsHero total={templates.length} />
@@ -65,8 +68,8 @@ export function CollectionsExperience({
           }}
         />
 
-        <section className="mx-auto max-w-[1200px] px-5 pb-20 sm:px-8">
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mx-auto max-w-[1480px] px-4 pb-24 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filtered.map((template, index) => (
               <CollectionCard
                 key={template.id}
@@ -77,8 +80,8 @@ export function CollectionsExperience({
           </div>
 
           {filtered.length === 0 && (
-            <div className="rounded-[1.5rem] border border-dashed border-[var(--line-strong)] bg-white px-6 py-16 text-center">
-              <p className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
+            <div className="border border-dashed border-[var(--line-strong)] bg-white/80 px-6 py-16 text-center">
+              <p className="text-2xl font-semibold tracking-tight text-[var(--ink)]">
                 No templates match
               </p>
               <p className="mt-2 text-[var(--muted)]">
@@ -89,7 +92,7 @@ export function CollectionsExperience({
         </section>
 
         <footer className="border-t border-[var(--line)]">
-          <div className="mx-auto flex max-w-[1200px] flex-col gap-2 px-5 py-10 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <div className="mx-auto flex max-w-[1480px] flex-col gap-2 px-4 py-10 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
             <p>Template Commons · client showcase</p>
             <a href="/" className="transition-colors hover:text-[var(--ink)]">
               Back to hub
@@ -111,6 +114,6 @@ export function CollectionsExperience({
           )}
         </AnimatePresence>
       </div>
-    </CupcakeBiteProvider>
+    </TemplateDetailProvider>
   );
 }
