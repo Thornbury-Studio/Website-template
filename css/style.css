@@ -46,6 +46,16 @@ body {
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  --bg-zoom: 1;
+  --bg-fade: 1;
+  --bg-soft: 0px;
+  --bg-veil: 0.35;
+  transform: scale(var(--bg-zoom));
+  transform-origin: center top;
+  will-change: transform, opacity, filter;
+  opacity: var(--bg-fade);
+  filter: blur(var(--bg-soft));
+  transition: none;
 }
 
 .bg-scape__fluid {
@@ -129,7 +139,12 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(233, 241, 241, 0.25) 0%, rgba(233, 241, 241, 0.55) 55%, rgba(232, 238, 238, 0.82) 100%),
+    linear-gradient(
+      180deg,
+      rgba(233, 241, 241, calc(var(--bg-veil) * 0.6)) 0%,
+      rgba(233, 241, 241, var(--bg-veil)) 55%,
+      rgba(232, 238, 238, calc(0.55 + var(--bg-veil) * 0.45)) 100%
+    ),
     radial-gradient(ellipse 80% 60% at 50% 0%, transparent 30%, rgba(233, 241, 241, 0.45) 100%);
 }
 
@@ -825,5 +840,11 @@ code, pre { font-family: var(--mono); }
   .rise,
   .bg-scape__blob {
     animation: none !important;
+  }
+
+  .bg-scape {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
   }
 }
