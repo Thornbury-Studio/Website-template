@@ -133,11 +133,13 @@ export function CupcakeBiteProvider({ children }: { children: ReactNode }) {
               transition={{ delay: 0.12, duration: 0.35 }}
             >
               <p className="font-[family-name:var(--font-display)] text-3xl tracking-tight text-[var(--ink)] sm:text-4xl">
-                Soft bite…
+                Opening preview
               </p>
               <p className="max-w-md text-sm text-[var(--muted)]">
-                Opening <span className="font-semibold text-[var(--accent-deep)]">{bite.label}</span>{" "}
-                like frosting on a cupcake.
+                Loading{" "}
+                <span className="font-semibold text-[var(--accent-deep)]">
+                  {bite.label}
+                </span>
               </p>
             </motion.div>
           </motion.div>

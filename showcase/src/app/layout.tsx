@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito } from "next/font/google";
+import { Fraunces, Figtree } from "next/font/google";
 import "./globals.css";
 
 const display = Fraunces({
@@ -7,18 +7,18 @@ const display = Fraunces({
   subsets: ["latin"],
 });
 
-const body = Nunito({
+const body = Figtree({
   variable: "--font-body",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Collections · Website Templates",
+    default: "Templates · Website Templates",
     template: "%s · Website Templates",
   },
   description:
-    "Cupcake-themed collections gallery for browsing client-facing website template shells.",
+    "Premium collections gallery for browsing client-facing website template shells.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

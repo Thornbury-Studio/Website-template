@@ -14,20 +14,17 @@ export function CollectionsHero({ total }: CollectionsHeroProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-[var(--accent-deep)] uppercase">
-          Cupcake bakery tray
-        </p>
         <div className="flex flex-wrap items-end gap-3">
           <h1 className="font-[family-name:var(--font-display)] text-5xl leading-none tracking-tight text-[var(--ink)] sm:text-6xl md:text-7xl">
-            Collections
+            Templates
           </h1>
-          <span className="mb-1 rounded-2xl bg-[var(--accent-soft)] px-2.5 py-1 text-sm font-semibold text-[var(--accent-deep)]">
+          <span className="mb-1 rounded-2xl bg-white px-2.5 py-1 text-sm font-semibold text-[var(--muted)] ring-1 ring-[var(--line)]">
             {total}
           </span>
         </div>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
-          Pick a template like choosing a cupcake — soft frosting cards, sweet
-          feedback, and a little bite animation when you open a blank preview.
+          Browse polished template shells from the collection. Each card opens a
+          blank wireframe preview — structure only, no live client content.
         </p>
       </motion.div>
     </section>

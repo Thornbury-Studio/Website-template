@@ -38,7 +38,7 @@ export function CollectionsExperience({
 
   const showToast = (message: string) => {
     setToast(message);
-    window.setTimeout(() => setToast(null), 1800);
+    window.setTimeout(() => setToast(null), 1600);
   };
 
   return (
@@ -53,20 +53,20 @@ export function CollectionsExperience({
             setActiveFilter(filter);
             showToast(
               filter === "All"
-                ? "Showing the whole bakery tray"
-                : `Sweet pick: ${filter} shells`,
+                ? "Showing all templates"
+                : `Filtered to ${filter}`,
             );
           }}
           resultCount={filtered.length}
           onReset={() => {
             setActiveFilter("All");
             setQuery("");
-            showToast("Filters cleared — tray is fresh again");
+            showToast("Filters reset");
           }}
         />
 
         <section className="mx-auto max-w-[1200px] px-5 pb-20 sm:px-8">
-          <div className="grid grid-cols-1 gap-x-7 gap-y-12 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((template, index) => (
               <CollectionCard
                 key={template.id}
@@ -77,12 +77,12 @@ export function CollectionsExperience({
           </div>
 
           {filtered.length === 0 && (
-            <div className="rounded-[1.75rem] border border-dashed border-[var(--line-strong)] bg-[var(--frosting)] px-6 py-16 text-center shadow-[0_16px_40px_-28px_rgba(228,93,130,0.35)]">
+            <div className="rounded-[1.5rem] border border-dashed border-[var(--line-strong)] bg-white px-6 py-16 text-center">
               <p className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
-                No cupcakes on this tray
+                No templates match
               </p>
               <p className="mt-2 text-[var(--muted)]">
-                Try another tier or clear the search for a fresh batch.
+                Try another tier or clear the search query.
               </p>
             </div>
           )}
@@ -90,8 +90,10 @@ export function CollectionsExperience({
 
         <footer className="border-t border-[var(--line)]">
           <div className="mx-auto flex max-w-[1200px] flex-col gap-2 px-5 py-10 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between sm:px-8">
-            <p>Website Templates · cupcake collections</p>
-            <p>Soft feedback · original frosting mockups</p>
+            <p>Template Commons · client showcase</p>
+            <a href="/" className="transition-colors hover:text-[var(--ink)]">
+              Back to hub
+            </a>
           </div>
         </footer>
 
@@ -99,10 +101,10 @@ export function CollectionsExperience({
           {toast && (
             <motion.div
               role="status"
-              initial={{ opacity: 0, y: 16, scale: 0.96 }}
+              initial={{ opacity: 0, y: 14, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.98 }}
-              className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-2xl border border-white/80 bg-[var(--frosting)] px-4 py-3 text-sm font-medium text-[var(--ink)] shadow-[0_18px_40px_-20px_rgba(228,93,130,0.55)]"
+              exit={{ opacity: 0, y: 8, scale: 0.98 }}
+              className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full border border-[var(--line)] bg-white px-4 py-2.5 text-sm font-medium text-[var(--ink)] shadow-[0_16px_36px_-18px_rgba(28,36,38,0.35)]"
             >
               {toast}
             </motion.div>

@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Template Commons — an open collection of self-contained website templates</title>
-  <meta name="description" content="An open collection of self-contained website templates. Every template is plain HTML, CSS and JavaScript in its own folder, with no build step and no shared dependencies. Anyone can add one.">
+  <title>Template Commons — open website template collection</title>
+  <meta name="description" content="An open collection of self-contained website templates. Browse the client showcase, or contribute a plain HTML/CSS/JS folder.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ebf6f7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Template Commons">
   <meta property="og:title" content="Template Commons">
-  <meta property="og:description" content="An open collection of self-contained website templates. Plain HTML, CSS and JavaScript. No build step. Anyone can add one.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ffffff'/><rect x='4' y='6' width='10' height='20' fill='%230b4f4a'/><rect x='17' y='6' width='11' height='9' fill='%230b4f4a'/><rect x='17' y='18' width='11' height='8' fill='%238c3350'/></svg>">
+  <meta property="og:description" content="An open collection of self-contained website templates. Plain HTML, CSS and JavaScript. Anyone can add one.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ebf6f7'/><rect x='6' y='8' width='8' height='16' rx='2' fill='%23e06b88'/><rect x='16' y='8' width='10' height='7' rx='2' fill='%231c2426'/><rect x='16' y='17' width='10' height='7' rx='2' fill='%236db8b4'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,560&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,78 +23,68 @@
 
 <header class="top">
   <div class="wrap top__in">
-    <a class="mark" href="./">
+    <a class="mark" href="./" aria-current="page">
       <span class="mark__glyph" aria-hidden="true"><i></i><i></i><i></i></span>
       Template&nbsp;Commons
     </a>
     <nav class="top__nav" aria-label="Primary">
-      <a href="#add">How to add one</a>
-      <a href="/showcase/">Client showcase</a>
-      <a class="top__repo" href="https://github.com/sengchun75-stack/Website-template">Repository</a>
+      <a href="#add">How to add</a>
+      <a href="/showcase/">Showcase</a>
+      <a href="https://github.com/sengchun75-stack/Website-template">Repository</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <!-- ============================== hero ============================== -->
   <section class="hero">
     <div class="wrap">
-      <h1>An open collection<br>of self-contained<br><em>website templates.</em></h1>
+      <p class="hero__eyebrow">Open template collection</p>
+      <h1>Template Commons<br><em>website templates</em> worth starting from.</h1>
       <div class="hero__foot">
-        <p class="hero__lede">Every template here is one folder of plain HTML, CSS and
-          JavaScript. No build step, no framework, no shared dependencies &mdash;
-          download a folder and it runs. Anyone can add one.</p>
+        <p class="hero__lede">Self-contained HTML, CSS and JavaScript folders — no build step, no shared dependencies. Browse polished client shells in the showcase, or contribute your own template to the commons.</p>
         <dl class="hero__stat">
           <dt>In the collection</dt>
           <dd id="count">none yet</dd>
         </dl>
       </div>
+      <div class="hero__actions">
+        <a class="button" href="/showcase/">Browse showcase</a>
+        <a class="button button--ghost" href="#add">How to add one</a>
+      </div>
     </div>
   </section>
 
-  <!-- ============================ collection ============================ -->
-  <section class="collection" id="collection">
+  <section class="section" id="collection">
     <div class="wrap">
       <h2 class="section-head"><span class="section-head__n">01</span>The collection</h2>
 
       <noscript>
         <p class="notice">The collection is listed by a small script in
           <code>js/main.js</code>. With JavaScript turned off the list below will
-          not appear &mdash; the templates themselves are still in the
+          not appear — the templates themselves are still in the
           <code>templates/</code> folder of the repository.</p>
       </noscript>
 
-      <!-- Rendered by js/main.js when js/templates.js has entries. Starts
-           hidden because right now there are none, and an empty grid box is
-           not an honest thing to show. -->
       <div class="grid" id="grid" hidden></div>
 
-      <!-- The honest default. This is the real state of the repository
-           today, sitting in the HTML rather than being drawn by script, so
-           it is correct even before anything runs. -->
-      <div class="empty" id="empty">
+      <div class="empty panel" id="empty">
         <div class="empty__say">
           <h3>No templates yet.</h3>
-          <p>Nothing has been contributed so far. This page is the whole project
-            at the moment: a hub, a convention, and an empty folder waiting for a
-            first entry. The slots below are where they will sit.</p>
-          <p class="empty__cta"><a class="button" href="#add">Add the first one</a></p>
+          <p>This hub is ready for the first contribution. Until then, explore the client showcase for curated blank shells by tier.</p>
+          <p class="empty__cta">
+            <a class="button" href="/showcase/">Open showcase</a>
+            <a class="button button--ghost" href="#add">Add the first one</a>
+          </p>
         </div>
-        <ol class="slots" aria-hidden="true">
-          <li class="slot slot--next"><span class="slot__n">01</span><span class="slot__say">The first entry goes here</span></li>
-          <li class="slot"><span class="slot__n">02</span></li>
-          <li class="slot"><span class="slot__n">03</span></li>
-        </ol>
       </div>
     </div>
   </section>
 
-  <!-- ============================== add one ============================== -->
-  <section class="add band" id="add">
+  <section class="section add" id="add">
     <div class="wrap">
       <h2 class="section-head"><span class="section-head__n">02</span>Adding a template</h2>
-      <p class="add__lede">Three steps. The whole convention fits on this page &mdash;
+      <p class="add__lede">Three steps. The whole convention fits on this page —
         <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> is the same thing written out
         at length, and <a href="templates/README.md">templates/README.md</a>
         describes the folder itself.</p>
@@ -133,10 +123,10 @@
     title:       'Your Template',
     description: 'One sentence about what it is for.',
     author:      'Your Name',
-    authorUrl:   'https://github.com/yourhandle',   // optional
-    tags:        ['portfolio', 'one-page'],         // optional
-    added:       '2026-01-31',                      // optional, YYYY-MM-DD
-    thumb:       'templates/your-slug/img/thumb.webp'  // optional
+    authorUrl:   'https://github.com/yourhandle',
+    tags:        ['portfolio', 'one-page'],
+    added:       '2026-01-31',
+    thumb:       'templates/your-slug/img/thumb.webp'
   }
 
 ];</code></pre>
@@ -152,6 +142,7 @@
     <p class="foot__note">An open collection. Each template belongs to whoever
       wrote it; see that template&rsquo;s own folder for its terms.</p>
     <p class="foot__links">
+      <a href="/showcase/">Showcase</a>
       <a href="https://github.com/sengchun75-stack/Website-template">Repository</a>
       <a href="CONTRIBUTING.md">Contributing</a>
     </p>

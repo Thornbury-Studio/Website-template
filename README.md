@@ -46,17 +46,15 @@ cross-origin rules there, and would render an empty page locally while
 working fine once deployed. That is the worst possible failure to hand
 somebody checking their own contribution.
 
-## Client showcase (optional sibling)
+## Client showcase
 
-`showcase/` is a separate Next.js collections gallery inspired by curated
-inspiration boards. It does **not** replace Template Commons.
+`showcase/` is the Framer-style templates gallery. It shares the mint
+`#ebf6f7` system with Template Commons and does **not** replace the hub.
 
-- Hub (this site): `/`
-- Showcase gallery: `/showcase/`
+- Hub: `/`
+- Showcase: `/showcase/`
 
-Includes search, tier filters, motion, and original copyright-free SVG mockups.
-
-Build both together with `npm run build` (outputs `dist/`).
+Build both with `npm run build` (outputs `dist/`).
 
 ## Deployment
 

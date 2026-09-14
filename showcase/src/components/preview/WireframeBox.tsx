@@ -1,6 +1,5 @@
 interface WireframeBoxProps {
   label: string;
-  /** Recommended dimension hint shown under the label */
   dimensions: string;
   className?: string;
   aspectRatio?: string;
@@ -14,13 +13,13 @@ export function WireframeBox({
 }: WireframeBoxProps) {
   return (
     <div
-      className={`relative flex w-full flex-col items-center justify-center gap-1 border border-dashed border-[var(--wire-line)] bg-[var(--wire)] ${className}`}
+      className={`relative flex w-full flex-col items-center justify-center gap-1.5 overflow-hidden rounded-[1.25rem] border border-dashed border-[var(--wire-line)] bg-[linear-gradient(160deg,var(--wire)_0%,#fde8ee_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${className}`}
       style={{ aspectRatio }}
       role="img"
       aria-label={`${label}, recommended ${dimensions}`}
     >
       <svg
-        className="absolute inset-0 h-full w-full text-[var(--wire-line)]"
+        className="absolute inset-0 h-full w-full text-[var(--wire-line)] opacity-70"
         aria-hidden="true"
       >
         <line
@@ -40,7 +39,7 @@ export function WireframeBox({
           strokeWidth="1"
         />
       </svg>
-      <span className="relative z-10 text-center text-xs font-medium tracking-[0.08em] text-[var(--muted)] uppercase">
+      <span className="relative z-10 text-center text-xs font-semibold tracking-[0.08em] text-[var(--muted)] uppercase">
         {label}
       </span>
       <span className="relative z-10 text-center text-[11px] text-[var(--muted)]">

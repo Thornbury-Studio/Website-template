@@ -7,11 +7,11 @@ interface BlankTemplateShellProps {
 
 export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
   return (
-    <div className="bg-[var(--paper)] text-[var(--ink)]">
+    <div className="bg-transparent text-[var(--ink)]">
       <section className="border-b border-[var(--line)]">
-        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-20">
+        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-20">
           <div className="animate-[rise_700ms_ease-out]">
-            <p className="text-xs font-semibold tracking-[0.18em] text-[var(--accent)] uppercase">
+            <p className="text-xs font-semibold tracking-[0.18em] text-[var(--accent-deep)] uppercase">
               [{template.tier} · {template.category}]
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl leading-tight tracking-tight sm:text-5xl">
@@ -21,10 +21,10 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
               [Subheading describing value proposition]
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <span className="inline-flex h-11 items-center rounded-xl bg-[var(--ink)] px-5 text-sm text-[var(--paper)]">
+              <span className="inline-flex h-11 items-center rounded-full bg-[var(--ink)] px-5 text-sm text-white">
                 [Primary CTA]
               </span>
-              <span className="inline-flex h-11 items-center rounded-xl border border-[var(--line)] px-5 text-sm text-[var(--muted)]">
+              <span className="inline-flex h-11 items-center rounded-full border border-[var(--line)] bg-white px-5 text-sm text-[var(--muted)]">
                 [Secondary CTA]
               </span>
             </div>
@@ -32,14 +32,13 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
           <WireframeBox
             label="Hero Media Placeholder"
             dimensions="Recommended 1200 × 675 (16:9)"
-            className="rounded-[1.25rem]"
           />
         </div>
       </section>
 
       <section className="border-b border-[var(--line)]">
-        <div className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 sm:py-20">
-          <p className="text-xs font-semibold tracking-[0.18em] text-[var(--accent)] uppercase">
+        <div className="mx-auto max-w-[1200px] px-5 py-14 sm:px-8 sm:py-20">
+          <p className="text-xs font-semibold tracking-[0.18em] text-[var(--accent-deep)] uppercase">
             [Section Label]
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl tracking-tight">
@@ -49,17 +48,17 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
             [Short supporting sentence about product or service features]
           </p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3].map((index) => (
               <div
                 key={index}
-                className="rounded-[1.25rem] bg-[var(--surface)] p-5 ring-1 ring-[var(--line)]"
+                className="rounded-[1.35rem] border border-[var(--line)] bg-white p-5 shadow-[0_14px_30px_-24px_rgba(28,36,38,0.35)]"
               >
                 <WireframeBox
                   label={`Feature Icon ${index}`}
                   dimensions="Recommended 80 × 80"
                   aspectRatio="1 / 1"
-                  className="max-w-[5rem] rounded-xl"
+                  className="max-w-[4.75rem]"
                 />
                 <h3 className="mt-4 font-[family-name:var(--font-display)] text-xl">
                   [Feature Title {index}]
@@ -73,8 +72,8 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
         </div>
       </section>
 
-      <section className="border-b border-[var(--line)] bg-[var(--mist)]">
-        <div className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 sm:py-20">
+      <section className="border-b border-[var(--line)] bg-white/55">
+        <div className="mx-auto max-w-[1200px] px-5 py-14 sm:px-8 sm:py-20">
           <h2 className="font-[family-name:var(--font-display)] text-3xl tracking-tight">
             [Social Proof Headline]
           </h2>
@@ -82,7 +81,7 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
             [Placeholder line about trust, results, or customer outcomes]
           </p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
             {[
               { value: "[00+]", label: "[Stat Label]" },
               { value: "[00%]", label: "[Stat Label]" },
@@ -90,7 +89,7 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
             ].map((stat) => (
               <div
                 key={stat.value}
-                className="rounded-[1.25rem] border border-[var(--line)] bg-[var(--surface)] p-6"
+                className="rounded-[1.35rem] border border-[var(--line)] bg-white p-6"
               >
                 <p className="font-[family-name:var(--font-display)] text-4xl tracking-tight">
                   {stat.value}
@@ -105,14 +104,13 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
               label="Logo / Testimonial Strip Placeholder"
               dimensions="Recommended 1100 × 120"
               aspectRatio="11 / 1.2"
-              className="rounded-[1.25rem]"
             />
           </div>
         </div>
       </section>
 
       <section>
-        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <h2 className="font-[family-name:var(--font-display)] text-3xl tracking-tight sm:text-4xl">
               [Contact / CTA Headline]
@@ -125,7 +123,7 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
               <p>[(000) 000-0000]</p>
               <p>[City, Region]</p>
             </div>
-            <span className="mt-8 inline-flex h-11 items-center rounded-xl bg-[var(--accent)] px-5 text-sm font-medium text-white">
+            <span className="mt-8 inline-flex h-11 items-center rounded-full bg-[var(--accent)] px-5 text-sm font-semibold text-white">
               [Submit Inquiry]
             </span>
           </div>
@@ -133,7 +131,6 @@ export function BlankTemplateShell({ template }: BlankTemplateShellProps) {
             label="Contact Form / Map Placeholder"
             dimensions="Recommended 640 × 480 (4:3)"
             aspectRatio="4 / 3"
-            className="rounded-[1.25rem]"
           />
         </div>
       </section>
