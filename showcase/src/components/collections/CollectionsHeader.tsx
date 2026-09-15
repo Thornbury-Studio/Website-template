@@ -14,9 +14,14 @@ export function CollectionsHeader({
       <div className="mx-auto flex h-14 max-w-[1480px] items-center gap-4 px-4 sm:px-6 lg:px-8">
         <a
           href="/"
-          className="shrink-0 text-[15px] font-semibold tracking-tight text-[var(--ink)]"
+          className="inline-flex shrink-0 items-center gap-2 font-[family-name:var(--font-display)] text-[15px] font-semibold tracking-tight text-[var(--ink)]"
         >
-          TC<span className="text-[var(--accent)]">.</span>
+          <span className="grid h-3.5 w-3.5 grid-cols-2 gap-px" aria-hidden="true">
+            <span className="rounded-[1px] bg-[var(--accent)]" />
+            <span className="rounded-[1px] bg-[var(--ink)]" />
+            <span className="col-span-2 h-[3px] rounded-[1px] bg-[var(--mint-bright)]" />
+          </span>
+          Template Commons
         </a>
 
         <label className="relative min-w-0 flex-1">
@@ -44,7 +49,7 @@ export function CollectionsHeader({
           href="/"
           className="hidden shrink-0 text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--ink)] sm:inline"
         >
-          Template Commons
+          Hub
         </a>
       </div>
     </header>

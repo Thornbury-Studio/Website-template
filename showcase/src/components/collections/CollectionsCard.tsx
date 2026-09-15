@@ -65,7 +65,7 @@ export function CollectionCard({ template, index }: CollectionCardProps) {
             <span className="rounded-[3px] border border-[#d8d8d8] px-1.5 py-[2px] text-[10px] font-semibold tracking-wide text-[#555] uppercase">
               {badge}
             </span>
-            <span className="rounded-[3px] border border-[#d8d8d8] px-1.5 py-[2px] text-[10px] font-semibold tracking-wide text-[#c94f6d] uppercase">
+            <span className="rounded-[3px] border border-[var(--line)] px-1.5 py-[2px] text-[10px] font-semibold tracking-wide text-[var(--accent-deep)] uppercase">
               {template.category.slice(0, 4)}
             </span>
           </div>

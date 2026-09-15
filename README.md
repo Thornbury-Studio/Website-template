@@ -32,12 +32,26 @@ agreement.
 
 ## Running it locally
 
-There is nothing to install and nothing to build. Double-click `index.html`,
-or serve the directory if you prefer:
+Hub alone (no showcase):
 
 ```bash
 python -m http.server 8000
 ```
+
+Hub + showcase together — build first, then serve `dist/`:
+
+```bash
+npm run build
+python -m http.server 8000 --directory dist
+```
+
+Showcase only (Next.js):
+
+```bash
+npm run dev:showcase
+```
+
+Then open [http://localhost:3000/showcase/](http://localhost:3000/showcase/).
 
 The collection data is a plain script that assigns a global rather than a
 JSON file fetched at runtime, specifically so that opening the page from

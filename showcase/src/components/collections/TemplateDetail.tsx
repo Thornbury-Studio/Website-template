@@ -244,7 +244,7 @@ function TemplateDetailOverlay({
           </span>
           <Link
             href={template.previewUrl}
-            className="ml-1 shrink-0 rounded-full bg-[#e8ff47] px-4 py-2 text-xs font-bold tracking-wide text-[#111] uppercase transition-transform hover:scale-[1.03] active:scale-[0.98]"
+            className="ml-1 shrink-0 rounded-md bg-[var(--accent)] px-4 py-2 text-xs font-bold tracking-wide text-white uppercase transition-transform hover:scale-[1.03] active:scale-[0.98]"
           >
             Visit preview
           </Link>

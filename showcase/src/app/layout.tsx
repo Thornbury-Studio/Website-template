@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Syne, Figtree } from "next/font/google";
+import { Fraunces, Figtree } from "next/font/google";
 import "./globals.css";
 
-const display = Syne({
+const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
@@ -15,8 +15,8 @@ const body = Figtree({
 
 export const metadata: Metadata = {
   title: {
-    default: "Templates · Website Templates",
-    template: "%s · Website Templates",
+    default: "Templates · Template Commons",
+    template: "%s · Template Commons",
   },
   description:
     "Premium collections gallery for browsing client-facing website template shells.",

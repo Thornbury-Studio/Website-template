@@ -1,35 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f4f6f7;
+  /* Shared mint studio system with Template Commons hub */
+  --paper: #ebf6f7;
   --mist: #dceef1;
   --mist-deep: #c8e4e9;
   --surface: #ffffff;
   --frosting: #ffffff;
   --card: #ffffff;
-  --ink: #111111;
-  --muted: #666666;
-  --line: #e2e8ea;
-  --line-strong: #c5d4d8;
-  --accent: #e06b88;
-  --accent-deep: #c94f6d;
-  --accent-soft: #fde8ee;
-  --cherry: #c94f6d;
-  --cream: #fff8f0;
-  --butter: #ffe8c2;
+  --ink: #1c2426;
+  --muted: #5f6d70;
+  --line: #cfe3e7;
+  --line-strong: #a9cdd4;
+  --accent: #2f6f68;
+  --accent-deep: #1f5550;
+  --accent-soft: #dff3f0;
   --mint: #ebf6f7;
-  --sprinkle-1: #e06b88;
-  --sprinkle-2: #6db8b4;
-  --sprinkle-3: #e8b45c;
-  --sprinkle-4: #b89bc9;
+  --mint-bright: #6db8b4;
   --wire: #e7f3f5;
   --wire-line: #b3d4da;
   --tier-1-bg: #dff3f0;
   --tier-1-fg: #2f6f68;
-  --tier-2-bg: #fde8ee;
-  --tier-2-fg: #a13d5f;
-  --tier-3-bg: #fff0d4;
-  --tier-3-fg: #8a5a1f;
+  --tier-2-bg: #e8eef5;
+  --tier-2-fg: #3a4f6b;
+  --tier-3-bg: #f0ebe0;
+  --tier-3-fg: #6e5a2f;
   --background: var(--paper);
   --foreground: var(--ink);
 }
@@ -96,7 +91,7 @@
 }
 
 body {
-  background: #f4f6f7;
+  background: #e9f1f1;
   color: var(--ink);
   font-family: var(--font-body), ui-sans-serif, sans-serif;
 }

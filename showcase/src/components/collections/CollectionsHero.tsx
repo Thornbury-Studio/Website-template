@@ -16,14 +16,14 @@ export function CollectionsHero({ total }: CollectionsHeroProps) {
         className="flex flex-wrap items-end justify-between gap-4"
       >
         <div>
-          <h1 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] leading-none font-semibold tracking-[-0.03em] text-[#111]">
+          <h1 className="font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] leading-none font-semibold tracking-[-0.03em] text-[var(--ink)]">
             Templates.{" "}
-            <span className="text-[#888]">Blank shells for client picks.</span>{" "}
-            <span className="align-middle text-[0.55em] font-medium text-[#999]">
+            <span className="text-[var(--muted)]">Blank shells for client picks.</span>{" "}
+            <span className="align-middle text-[0.55em] font-medium text-[var(--muted)]">
               [{total}]
             </span>
           </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#666] sm:text-base">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
             Structure only — no live client content. Click a card for the full
             detail view, then open the blank wireframe preview.
           </p>
