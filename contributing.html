@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribute — Template Commons</title>
+  <meta name="description" content="Add a self-contained HTML template to Template Commons.">
+  <meta name="theme-color" content="#e9f1f1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ebf6f7'/><rect x='6' y='8' width='8' height='16' rx='2' fill='%232f6f68'/><rect x='16' y='8' width='10' height='7' rx='2' fill='%231c2426'/><rect x='16' y='17' width='10' height='7' rx='2' fill='%236db8b4'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg-scape" aria-hidden="true">
+  <div class="bg-scape__fluid">
+    <span class="bg-scape__blob bg-scape__blob--mint"></span>
+    <span class="bg-scape__blob bg-scape__blob--foam"></span>
+    <span class="bg-scape__blob bg-scape__blob--mist"></span>
+  </div>
+  <div class="bg-scape__blur"><div class="bg-scape__grid"></div></div>
+  <div class="bg-scape__veil"></div>
+  <div class="bg-scape__grain"></div>
+</div>
+
+<a class="skip" href="#steps">Skip to steps</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="mark" href="./">
+      <span class="mark__glyph" aria-hidden="true"><i></i><i></i><i></i></span>
+      Template&nbsp;Commons
+    </a>
+    <nav class="top__nav" aria-label="Primary">
+      <a href="./#featured">Templates</a>
+      <a href="/showcase/">Showcase</a>
+      <a href="https://github.com/Thornbury-Studio/Website-template">Repo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="doc">
+    <div class="wrap doc__inner">
+      <p class="doc__kicker">Contribute</p>
+      <h1 class="doc__title">Add a shell</h1>
+      <p class="doc__lede">One folder. One data entry. Open a PR. Keep it self-contained — plain HTML, CSS, and JavaScript.</p>
+
+      <ol class="doc__steps" id="steps">
+        <li class="doc__step">
+          <h2>1. Make a folder</h2>
+          <pre class="doc__code" tabindex="0"><code>templates/your-slug/
+├── index.html
+├── css/
+├── js/
+└── img/</code></pre>
+          <p>Slug: lowercase letters, digits, single hyphens. It must match the <code>slug</code> field below.</p>
+        </li>
+
+        <li class="doc__step">
+          <h2>2. Keep it self-contained</h2>
+          <p>Everything the template needs stays in that folder. No build step. No shared deps. CDN or vendored libs are fine.</p>
+          <p>Optional thumb: <code>templates/your-slug/img/thumb.webp</code> (~640×400).</p>
+        </li>
+
+        <li class="doc__step">
+          <h2>3. Add one entry in <code>js/templates.js</code></h2>
+          <pre class="doc__code" tabindex="0"><code>{
+  slug:        'your-slug',
+  title:       'Your Template',
+  description: 'One sentence about what it is for.',
+  author:      'Your Name',
+  authorUrl:   'https://github.com/yourhandle',
+  tags:        ['portfolio', 'one-page'],
+  added:       '2026-01-31',
+  thumb:       'templates/your-slug/img/thumb.webp'
+}</code></pre>
+          <p>Required: <code>slug</code>, <code>title</code>, <code>description</code>, <code>author</code>. Then open a pull request.</p>
+        </li>
+      </ol>
+
+      <div class="doc__reject">
+        <h2>Rejected when</h2>
+        <ul>
+          <li>Not self-contained / needs a build</li>
+          <li>Edits the hub beyond the one data entry</li>
+          <li>You don’t have rights to the assets</li>
+          <li>Slug mismatch or collision</li>
+          <li><code>index.html</code> doesn’t open</li>
+        </ul>
+        <p>License your own work in the folder if you want specific terms.</p>
+      </div>
+
+      <p class="doc__actions">
+        <a class="button" href="https://github.com/Thornbury-Studio/Website-template">Open the repo</a>
+        <a class="hero__ghost" href="./">Back to hub</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p class="foot__mark">Template Commons</p>
+    <p class="foot__note">Same steps live in <code>CONTRIBUTING.md</code> for GitHub reviewers.</p>
+    <p class="foot__links">
+      <a href="./">Hub</a>
+      <a href="/showcase/">Showcase</a>
+      <a href="https://github.com/Thornbury-Studio/Website-template">Repository</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -2,6 +2,8 @@
 
 Add a folder. Add one data entry. Open a PR.
 
+Readable on the site: [contributing.html](./contributing.html)
+
 ## 1. Folder
 
 ```

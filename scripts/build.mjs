@@ -13,6 +13,7 @@ mkdirSync(dist, { recursive: true });
 
 const friendItems = [
   "index.html",
+  "contributing.html",
   "css",
   "js",
   "img",
