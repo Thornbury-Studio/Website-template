@@ -31,7 +31,7 @@
       bg.style.setProperty("--bg-zoom", "1");
       bg.style.setProperty("--bg-fade", "1");
       bg.style.setProperty("--bg-soft", "0px");
-      bg.style.setProperty("--bg-veil", "0.35");
+      bg.style.setProperty("--bg-veil", "0.12");
       clearPlane();
       return;
     }
@@ -42,7 +42,7 @@
     bg.style.setProperty("--bg-zoom", String(1 + p * 0.16));
     bg.style.setProperty("--bg-fade", String(1 - p * 0.48));
     bg.style.setProperty("--bg-soft", (p * 12).toFixed(2) + "px");
-    bg.style.setProperty("--bg-veil", String(0.24 + p * 0.56));
+    bg.style.setProperty("--bg-veil", String(0.1 + p * 0.55));
 
     /* Only override plane after scroll starts — leave entrance animation alone at rest */
     if (plane) {

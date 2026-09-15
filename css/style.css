@@ -51,7 +51,7 @@ body {
   --bg-zoom: 1;
   --bg-fade: 1;
   --bg-soft: 0px;
-  --bg-veil: 0.28;
+  --bg-veil: 0.12;
   transform: scale(var(--bg-zoom));
   transform-origin: center top;
   will-change: transform, opacity, filter;
@@ -63,8 +63,8 @@ body {
 .bg-scape__fluid {
   position: absolute;
   inset: -20%;
-  filter: blur(48px) saturate(0.72);
-  opacity: 0.9;
+  filter: blur(52px) saturate(0.88);
+  opacity: 1;
   transform: translateZ(0);
 }
 
@@ -74,54 +74,89 @@ body {
 }
 
 .bg-scape__blob--mint {
-  top: 5%;
-  left: -8%;
-  width: 58vmax;
-  height: 58vmax;
-  background: radial-gradient(circle, #c5ddd9 0%, #b7d2ce 35%, transparent 70%);
+  top: -5%;
+  left: -12%;
+  width: 62vmax;
+  height: 62vmax;
+  background: radial-gradient(circle, #a8d0cb 0%, #8fbfb8 32%, transparent 70%);
 }
 
 .bg-scape__blob--foam {
-  top: -12%;
-  right: -10%;
-  width: 52vmax;
-  height: 52vmax;
-  background: radial-gradient(circle, #f7f4f4 0%, #ebe6e7 40%, transparent 72%);
+  top: -18%;
+  right: -14%;
+  width: 56vmax;
+  height: 56vmax;
+  background: radial-gradient(circle, #ffffff 0%, #e8f0ef 38%, transparent 72%);
 }
 
 .bg-scape__blob--blush {
-  bottom: -18%;
-  left: 18%;
-  width: 62vmax;
-  height: 62vmax;
-  background: radial-gradient(circle, #e8dfe1 0%, #d9e6e4 42%, transparent 70%);
+  bottom: -22%;
+  left: 12%;
+  width: 68vmax;
+  height: 68vmax;
+  background: radial-gradient(circle, #d9e6e3 0%, #c5d8d4 40%, transparent 70%);
 }
 
 .bg-scape__blob--mist {
-  top: 35%;
-  left: 30%;
-  width: 46vmax;
-  height: 46vmax;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(214, 228, 226, 0.45) 45%, transparent 70%);
+  top: 28%;
+  left: 28%;
+  width: 48vmax;
+  height: 48vmax;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(214, 228, 226, 0.5) 45%, transparent 70%);
+}
+
+.bg-scape__blob--pool {
+  top: 38%;
+  right: 4%;
+  width: 48vmax;
+  height: 48vmax;
+  background: radial-gradient(circle, #5aaea9 0%, #3d8f8a 30%, transparent 68%);
+  opacity: 0.45;
+}
+
+/* Soft shell frames — studio metaphor, not UI chrome */
+.bg-scape__atelier {
+  position: absolute;
+  inset: -4% -2%;
+  width: 104%;
+  height: 108%;
+  opacity: 1;
 }
 
 .bg-scape__blur {
   position: absolute;
   inset: -8%;
-  opacity: 0.55;
-  filter: blur(56px) saturate(0.65) contrast(0.88);
+  opacity: 0.4;
+  filter: blur(48px) saturate(0.7) contrast(0.9);
   transform: translateZ(0);
 }
 
 .bg-scape__grid {
   position: absolute;
   inset: 0;
-  opacity: 0.7;
+  opacity: 0.85;
   background-image:
-    linear-gradient(rgba(90, 110, 110, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(90, 110, 110, 0.07) 1px, transparent 1px),
-    radial-gradient(rgba(90, 110, 110, 0.1) 1.2px, transparent 1.2px);
-  background-size: 84px 84px, 84px 84px, 22px 22px;
+    linear-gradient(rgba(47, 111, 104, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 111, 104, 0.06) 1px, transparent 1px),
+    radial-gradient(rgba(47, 111, 104, 0.09) 1.1px, transparent 1.1px);
+  background-size: 92px 92px, 92px 92px, 24px 24px;
+}
+
+.bg-scape__sheen {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.28) 34%,
+      transparent 52%,
+      rgba(109, 184, 180, 0.12) 78%,
+      transparent 100%
+    ),
+    radial-gradient(ellipse 70% 45% at 18% 30%, rgba(255, 255, 255, 0.55), transparent 60%);
+  mix-blend-mode: soft-light;
+  opacity: 0.85;
 }
 
 .bg-scape__veil {
@@ -130,17 +165,17 @@ body {
   background:
     linear-gradient(
       180deg,
-      rgba(233, 241, 241, calc(var(--bg-veil) * 0.45)) 0%,
-      rgba(233, 241, 241, var(--bg-veil)) 55%,
-      rgba(232, 238, 238, calc(0.5 + var(--bg-veil) * 0.45)) 100%
+      rgba(233, 241, 241, calc(var(--bg-veil) * 0.35)) 0%,
+      rgba(233, 241, 241, var(--bg-veil)) 58%,
+      rgba(228, 236, 235, calc(0.42 + var(--bg-veil) * 0.4)) 100%
     ),
-    radial-gradient(ellipse 80% 60% at 50% 0%, transparent 30%, rgba(233, 241, 241, 0.4) 100%);
+    radial-gradient(ellipse 90% 55% at 50% -5%, transparent 20%, rgba(233, 241, 241, 0.28) 100%);
 }
 
 .bg-scape__grain {
   position: absolute;
   inset: 0;
-  opacity: 0.045;
+  opacity: 0.055;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
